@@ -2,7 +2,10 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  >
 
   <title>Taffy Partners</title>
 
@@ -14,15 +17,29 @@
       -webkit-tap-highlight-color: transparent;
     }
 
+    :root {
+      --purple: #76558f;
+      --purple-dark: #5f4477;
+      --purple-light: #eee6f3;
+      --bg: #f8f5fb;
+      --card: #ffffff;
+      --text: #241f2b;
+      --muted: #8f8894;
+      --border: #e8e1eb;
+      --danger: #9b3c3c;
+      --success: #39704a;
+    }
+
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #f8f5fb;
-      color: #241f2b;
+      background: var(--bg);
+      color: var(--text);
     }
 
     button,
-    input {
+    input,
+    select {
       font-family: inherit;
     }
 
@@ -32,9 +49,9 @@
 
     .app {
       width: 100%;
-      max-width: 520px;
+      max-width: 560px;
       margin: 0 auto;
-      padding: 28px 20px 45px;
+      padding: 24px 18px 110px;
     }
 
     .hidden {
@@ -43,28 +60,28 @@
 
     .brand {
       text-align: center;
-      margin: 18px 0 34px;
+      margin: 12px 0 28px;
     }
 
     .logo {
-      color: #76558f;
-      font-size: 32px;
+      color: var(--purple);
+      font-size: 31px;
       font-weight: 800;
       letter-spacing: 5px;
     }
 
     .subtitle {
-      color: #9a929f;
-      margin-top: 7px;
-      font-size: 14px;
+      color: var(--muted);
+      margin-top: 6px;
+      font-size: 13px;
     }
 
     .card {
-      background: #ffffff;
+      background: var(--card);
       border-radius: 24px;
-      padding: 24px 22px;
-      margin-bottom: 18px;
-      box-shadow: 0 8px 30px rgba(71, 45, 87, 0.06);
+      padding: 22px;
+      margin-bottom: 16px;
+      box-shadow: 0 8px 30px rgba(71, 45, 87, 0.055);
     }
 
     h1,
@@ -75,17 +92,21 @@
     }
 
     h1 {
-      font-size: 25px;
-      margin-bottom: 10px;
+      font-size: 24px;
+      margin-bottom: 9px;
     }
 
     h2 {
       font-size: 21px;
-      margin-bottom: 16px;
+    }
+
+    h3 {
+      font-size: 17px;
+      margin-bottom: 7px;
     }
 
     .muted {
-      color: #85808a;
+      color: var(--muted);
       line-height: 1.5;
     }
 
@@ -93,45 +114,58 @@
       width: 100%;
       border: none;
       border-radius: 17px;
-      padding: 17px;
-      background: #76558f;
-      color: #ffffff;
+      padding: 16px;
+      background: var(--purple);
+      color: #fff;
       font-size: 16px;
       font-weight: 650;
     }
 
+    .primary-button:disabled {
+      opacity: 0.55;
+    }
+
     .secondary-button {
       width: 100%;
-      border: 1px solid #ded6e4;
+      border: 1px solid var(--border);
       border-radius: 17px;
       padding: 15px;
-      background: #ffffff;
-      color: #76558f;
+      background: #fff;
+      color: var(--purple);
       font-size: 15px;
       font-weight: 600;
+    }
+
+    .back-button {
+      background: transparent;
+      border: none;
+      padding: 5px 0 17px;
+      color: var(--purple);
+      font-size: 15px;
+      font-weight: 650;
     }
 
     .menu {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
-      margin-top: 18px;
+      margin-top: 17px;
     }
 
     .menu-item {
-      border: none;
+      border: 0;
       text-align: left;
-      background: #ffffff;
+      background: #fff;
       min-height: 132px;
       border-radius: 22px;
       padding: 20px 17px;
+      color: var(--text);
       box-shadow: 0 8px 30px rgba(71, 45, 87, 0.05);
-      color: #241f2b;
     }
 
     .menu-icon {
-      font-size: 25px;
-      margin-bottom: 18px;
+      font-size: 26px;
+      margin-bottom: 17px;
     }
 
     .menu-title {
@@ -140,13 +174,13 @@
     }
 
     .menu-description {
-      color: #9a949d;
+      color: var(--muted);
       font-size: 12px;
       margin-top: 5px;
     }
 
     .field {
-      margin-bottom: 15px;
+      margin-bottom: 14px;
     }
 
     .field label {
@@ -157,42 +191,37 @@
       color: #625c67;
     }
 
-    .field input {
+    .field input,
+    .field select {
       width: 100%;
       border: 1px solid #ded8e2;
       border-radius: 15px;
-      background: #ffffff;
+      background: #fff;
       padding: 14px 15px;
       font-size: 16px;
       outline: none;
     }
 
-    .field input:focus {
-      border-color: #8c6ba4;
-    }
-
-    .form-actions {
-      margin-top: 22px;
-      display: grid;
-      gap: 10px;
+    .field input:focus,
+    .field select:focus {
+      border-color: var(--purple);
     }
 
     .message {
       border-radius: 15px;
       padding: 13px 14px;
-      margin-bottom: 16px;
+      margin-bottom: 15px;
       font-size: 14px;
-      line-height: 1.4;
     }
 
     .error {
-      background: #fff1f1;
-      color: #8d3535;
+      background: #fff0f0;
+      color: var(--danger);
     }
 
     .success {
-      background: #f0f8f2;
-      color: #356642;
+      background: #eff8f1;
+      color: var(--success);
     }
 
     .loading {
@@ -204,7 +233,7 @@
       width: 38px;
       height: 38px;
       border: 4px solid #e8e1ed;
-      border-top-color: #76558f;
+      border-top-color: var(--purple);
       border-radius: 50%;
       margin: 0 auto 18px;
       animation: spin 0.8s linear infinite;
@@ -216,65 +245,67 @@
       }
     }
 
+    /* PROFILE */
+
     .profile-header {
       display: flex;
       align-items: center;
       gap: 15px;
-      margin-bottom: 22px;
+      margin-bottom: 20px;
     }
 
     .avatar {
       width: 58px;
       height: 58px;
       border-radius: 50%;
-      background: #ede5f2;
+      background: var(--purple-light);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #76558f;
+      color: var(--purple);
       font-size: 22px;
       font-weight: 800;
     }
 
     .profile-name {
-      font-weight: 700;
       font-size: 19px;
+      font-weight: 700;
     }
 
     .partner-id {
+      color: var(--muted);
       margin-top: 4px;
-      color: #8d8591;
       font-size: 13px;
     }
 
     .stats {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 9px;
-      margin-bottom: 20px;
+      gap: 8px;
+      margin-bottom: 19px;
     }
 
     .stat {
       background: #f7f3fa;
-      border-radius: 17px;
-      padding: 14px 9px;
+      border-radius: 16px;
+      padding: 14px 8px;
       text-align: center;
     }
 
     .stat-value {
-      font-size: 17px;
+      color: var(--purple-dark);
+      font-size: 16px;
       font-weight: 750;
-      color: #5f4477;
     }
 
     .stat-label {
-      margin-top: 5px;
-      color: #918996;
+      color: var(--muted);
       font-size: 10px;
+      margin-top: 5px;
     }
 
     .profile-row {
-      padding: 14px 0;
+      padding: 13px 0;
       border-bottom: 1px solid #eee9f0;
     }
 
@@ -283,39 +314,310 @@
     }
 
     .profile-label {
-      color: #96909a;
+      color: var(--muted);
       font-size: 12px;
       margin-bottom: 4px;
     }
 
-    .profile-value {
-      font-size: 15px;
+    /* CATALOG */
+
+    .catalog-header {
+      margin-bottom: 18px;
     }
 
-    .back-button {
-      background: transparent;
-      border: none;
-      padding: 4px 0 17px;
-      font-size: 15px;
-      color: #76558f;
+    .category-scroll {
+      display: flex;
+      gap: 9px;
+      overflow-x: auto;
+      padding: 2px 0 14px;
+      scrollbar-width: none;
+    }
+
+    .category-scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    .category-button {
+      flex: 0 0 auto;
+      border: 1px solid var(--border);
+      background: #fff;
+      color: #625b66;
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: 13px;
       font-weight: 600;
     }
 
-    .coming-soon {
+    .category-button.active {
+      background: var(--purple);
+      color: #fff;
+      border-color: var(--purple);
+    }
+
+    .product-card {
+      background: #fff;
+      border-radius: 24px;
+      overflow: hidden;
+      margin-bottom: 16px;
+      box-shadow: 0 8px 30px rgba(71, 45, 87, 0.055);
+    }
+
+    .product-image-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1.35 / 1;
+      background: #faf8fb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .product-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 12px;
+    }
+
+    .image-placeholder {
+      color: #b0a8b4;
       text-align: center;
-      padding: 50px 15px;
+      font-size: 13px;
+      padding: 30px;
     }
 
-    .coming-icon {
-      font-size: 40px;
-      margin-bottom: 15px;
+    .product-body {
+      padding: 19px;
     }
 
-    .telegram-warning {
-      margin-top: 18px;
+    .product-category {
+      color: var(--purple);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 7px;
+    }
+
+    .product-name {
+      font-size: 19px;
+      font-weight: 750;
+      margin-bottom: 6px;
+    }
+
+    .variant-row {
+      margin-top: 15px;
+    }
+
+    .variant-label {
       font-size: 12px;
-      color: #a099a4;
+      font-weight: 650;
+      color: #67606c;
+      margin-bottom: 8px;
+    }
+
+    .option-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .option-button {
+      border: 1px solid var(--border);
+      background: #fff;
+      color: #5e5763;
+      border-radius: 12px;
+      padding: 9px 11px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .option-button.selected {
+      border-color: var(--purple);
+      background: var(--purple-light);
+      color: var(--purple-dark);
+    }
+
+    .product-bottom {
+      display: flex;
+
+    align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .price {
+      font-size: 21px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .add-button {
+      border: none;
+      background: var(--purple);
+      color: #fff;
+      border-radius: 14px;
+      padding: 12px 15px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .add-button:disabled {
+      background: #c6bdca;
+    }
+
+    .availability {
+      display: inline-block;
+      margin-top: 9px;
+      font-size: 12px;
+      color: var(--success);
+    }
+
+    .unavailable {
+      color: var(--danger);
+    }
+
+    .empty-state {
+      padding: 50px 20px;
       text-align: center;
+      color: var(--muted);
+    }
+
+    /* CART */
+
+    .cart-item {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 13px;
+      background: #fff;
+      border-radius: 20px;
+      padding: 13px;
+      margin-bottom: 11px;
+    }
+
+    .cart-image {
+      width: 72px;
+      height: 72px;
+      object-fit: contain;
+      border-radius: 14px;
+      background: #faf8fb;
+    }
+
+    .cart-item-name {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .cart-item-meta {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .cart-item-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    .quantity-control {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .quantity-button {
+      width: 30px;
+      height: 30px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--purple);
+      font-size: 18px;
+    }
+
+    .remove-button {
+      border: none;
+      background: transparent;
+      color: #a16c6c;
+      font-size: 12px;
+      padding: 6px 0;
+      margin-top: 7px;
+    }
+
+    .cart-total {
+      background: #fff;
+      border-radius: 22px;
+      padding: 20px;
+      margin-top: 18px;
+    }
+
+    .total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .total-value {
+      font-size: 23px;
+      font-weight: 800;
+      color: var(--purple-dark);
+    }
+
+    .cart-float {
+      position: fixed;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 18px;
+      width: calc(100% - 36px);
+      max-width: 524px;
+      z-index: 20;
+    }
+
+    .cart-float-button {
+      width: 100%;
+      border: none;
+      border-radius: 18px;
+      padding: 15px 17px;
+      background: var(--purple);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 12px 30px rgba(81, 55, 101, 0.25);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .cart-count {
+      background: rgba(255,255,255,0.18);
+      padding: 5px 9px;
+      border-radius: 999px;
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 88px;
+      transform: translateX(-50%);
+      background: #2e2931;
+      color: #fff;
+      border-radius: 14px;
+      padding: 11px 15px;
+      font-size: 13px;
+      z-index: 50;
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.2s;
+      white-space: nowrap;
+    }
+
+    .toast.show {
+      opacity: 1;
     }
   </style>
 </head>
@@ -328,6 +630,9 @@
     <div class="spinner"></div>
     <div class="muted">Загружаем Taffy...</div>
   </div>
+
+
+  <!-- MAIN -->
 
   <div id="mainScreen" class="hidden">
 
@@ -357,7 +662,7 @@
       <div class="card">
         <h1 id="welcomeName">Добро пожаловать</h1>
         <p class="muted">
-          Управляйте заказами, каталогом и своими результатами в одном месте.
+          Каталог, заказы и личные результаты — в одном месте.
         </p>
       </div>
 
@@ -372,7 +677,7 @@
         <button class="menu-item" data-section="cart">
           <div class="menu-icon">🛒</div>
           <div class="menu-title">Корзина</div>
-          <div class="menu-description">Ваш заказ</div>
+          <div class="menu-description" id="homeCartDescription">Ваш заказ</div>
         </button>
 
         <button class="menu-item" data-section="orders">
@@ -393,6 +698,9 @@
 
   </div>
 
+
+  <!-- REGISTRATION -->
+
   <div id="registrationScreen" class="hidden">
 
     <button class="back-button" id="registrationBack">
@@ -412,12 +720,12 @@
 
       <div class="field">
         <label for="lastName">Фамилия</label>
-        <input id="lastName" type="text" autocomplete="family-name">
+        <input id="lastName" type="text">
       </div>
 
       <div class="field">
         <label for="firstName">Имя</label>
-        <input id="firstName" type="text" autocomplete="given-name">
+        <input id="firstName" type="text">
       </div>
 
       <div class="field">
@@ -432,19 +740,83 @@
           type="tel"
           inputmode="tel"
           placeholder="+7 999 123-45-67"
-          autocomplete="tel"
         >
       </div>
 
-      <div class="form-actions">
-        <button id="registerButton" class="primary-button">
-          Зарегистрироваться
-        </button>
-      </div>
+      <button id="registerButton" class="primary-button">
+        Зарегистрироваться
+      </button>
 
     </div>
 
   </div>
+
+
+  <!-- CATALOG -->
+
+  <div id="catalogScreen" class="hidden">
+
+    <button class="back-button section-back">
+      ← Главная
+    </button>
+
+    <div class="catalog-header">
+      <h1>Каталог</h1>
+      <p class="muted">
+        Выберите категорию и нужный вариант товара.
+      </p>
+    </div>
+
+    <div id="categoryButtons" class="category-scroll"></div>
+
+    <div id="catalogLoading" class="loading hidden">
+      <div class="spinner"></div>
+      <div class="muted">Загружаем товары...</div>
+    </div>
+
+    <div id="productsContainer"></div>
+
+  </div>
+
+
+  <!-- CART -->
+
+  <div id="cartScreen" class="hidden">
+
+    <button class="back-button section-back">
+      ← Главная
+    </button>
+
+    <h1>Корзина</h1>
+
+    <div id="cartContainer"></div>
+
+    <div id="cartTotalBlock" class="cart-total hidden">
+
+      <div class="total-row">
+        <div>
+          <div class="muted">Итого</div>
+        </div>
+
+        <div id="cartTotal" class="total-value">
+          0 ₽
+        </div>
+      </div>
+
+      <button
+        class="primary-button"
+        style="margin-top:18px"
+        disabled
+      >
+        Оформление заказа — следующий этап
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- PROFILE -->
 
   <div id="profileScreen" class="hidden">
 
@@ -461,13 +833,11 @@
 
       <div class="profile-header">
 
-        <div class="avatar" id="profileAvatar">
-          T
-        </div>
+        <div id="profileAvatar" class="avatar">T</div>
 
         <div>
-          <div class="profile-name" id="profileName"></div>
-          <div class="partner-id" id="profilePartnerId"></div>
+          <div id="profileName" class="profile-name"></div>
+          <div id="profilePartnerId" class="partner-id"></div>
         </div>
 
       </div>
@@ -475,17 +845,17 @@
       <div class="stats">
 
         <div class="stat">
-          <div class="stat-value" id="ordersCount">0</div>
+          <div id="ordersCount" class="stat-value">0</div>
           <div class="stat-label">Заказов</div>
         </div>
 
         <div class="stat">
-          <div class="stat-value" id="salesValue">0 ₽</div>
+          <div id="salesValue" class="stat-value">0 ₽</div>
           <div class="stat-label">Продажи</div>
         </div>
 
         <div class="stat">
-          <div class="stat-value" id="incomeValue">0 ₽</div>
+          <div id="incomeValue" class="stat-value">0 ₽</div>
           <div class="stat-label">Доход</div>
         </div>
 
@@ -493,48 +863,47 @@
 
       <div class="profile-row">
         <div class="profile-label">Фамилия</div>
-        <div class="profile-value" id="profileLastName"></div>
+        <div id="profileLastName"></div>
       </div>
 
       <div class="profile-row">
         <div class="profile-label">Имя</div>
-        <div class="profile-value" id="profileFirstName"></div>
+        <div id="profileFirstName"></div>
       </div>
 
       <div class="profile-row">
         <div class="profile-label">Отчество</div>
-        <div class="profile-value" id="profileMiddleName"></div>
+        <div id="profileMiddleName"></div>
       </div>
 
       <div class="profile-row">
         <div class="profile-label">Телефон</div>
-        <div class="profile-value" id="profilePhone"></div>
+        <div id="profilePhone"></div>
       </div>
 
       <div class="profile-row">
         <div class="profile-label">Дата регистрации</div>
-        <div class="profile-value" id="profileDate"></div>
+        <div id="profileDate"></div>
       </div>
 
     </div>
 
   </div>
 
-  <div id="comingSoonScreen" class="hidden">
+
+  <!-- ORDERS -->
+
+  <div id="ordersScreen" class="hidden">
 
     <button class="back-button section-back">
       ← Главная
     </button>
 
-    <div class="brand">
-      <div class="logo">TAFFY</div>
-    </div>
-
-    <div class="card coming-soon">
-      <div id="comingIcon" class="coming-icon"></div>
-      <h2 id="comingTitle"></h2>
+    <div class="card" style="text-align:center;padding:48px 20px">
+      <div style="font-size:42px;margin-bottom:15px">📦</div>
+      <h2>Мои заказы</h2>
       <p class="muted">
-        Этот раздел подключим следующим этапом.
+        Историю заказов подключим после оформления заказа.
       </p>
     </div>
 
@@ -542,376 +911,1532 @@
 
 </div>
 
+
+<div id="cartFloat" class="cart-float hidden">
+  <button id="cartFloatButton" class="cart-float-button">
+    <span>🛒 Корзина</span>
+    <span id="cartFloatInfo" class="cart-count">0</span>
+  </button>
+</div>
+
+<div id="toast" class="toast">
+  Добавлено в корзину
+</div>
+
+
 <script>
-  const API_URL =
-    'https://script.google.com/macros/s/AKfycbyElK6eTJQqoZlcAwYbhCJtMLxNJ8pAV8JcZWhL-UWGEMGPqomrAWPIukl_nTSEp-Vn/exec';
 
-  const tg = window.Telegram?.WebApp;
+const API_URL =
+  'https://script.google.com/macros/s/AKfycbyElK6eTJQqoZlcAwYbhCJtMLxNJ8pAV8JcZWhL-UWGEMGPqomrAWPIukl_nTSEp-Vn/exec';
 
-  let telegramId = null;
-  let currentPartner = null;
 
-  if (tg) {
-    tg.ready();
-    tg.expand();
+const tg = window.Telegram?.WebApp;
 
-    if (tg.initDataUnsafe && tg.initDataUnsafe.user) {
-      telegramId = String(tg.initDataUnsafe.user.id);
-    }
+let telegramId = null;
+let currentPartner = null;
+
+let allProducts = [];
+let currentCategory = 'Все';
+
+let cart = [];
+
+try {
+  cart = JSON.parse(localStorage.getItem('taffy_cart') || '[]');
+} catch {
+  cart = [];
+}
+
+
+if (tg) {
+  tg.ready();
+  tg.expand();
+
+  if (tg.initDataUnsafe?.user?.id) {
+    telegramId = String(tg.initDataUnsafe.user.id);
   }
+}
 
-  const screens = [
-    'loadingScreen',
-    'mainScreen',
-    'registrationScreen',
-    'profileScreen',
-    'comingSoonScreen'
-  ];
 
-  function showScreen(screenId) {
-    screens.forEach(id => {
-      document.getElementById(id).classList.add('hidden');
-    });
+const screens = [
+  'loadingScreen',
+  'mainScreen',
+  'registrationScreen',
+  'catalogScreen',
+  'cartScreen',
+  'profileScreen',
+  'ordersScreen'
+];
 
-    document.getElementById(screenId).classList.remove('hidden');
-  }
 
-  async function apiRequest(payload) {
-    const response = await fetch(API_URL, {
-      method: 'POST',
+function showScreen(id) {
 
-      /*
-      text/plain специально используется для Google Apps Script,
-        чтобы браузер не делал лишний CORS preflight.
-      */
-      headers: {
-        'Content-Type': 'text/plain;charset=utf-8'
-      },
-
-      body: JSON.stringify(payload)
-    });
-
-    if (!response.ok) {
-      throw new Error('Ошибка соединения с сервером');
-    }
-
-    return await response.json();
-  }
-
-  async function initializeApp() {
-    if (!telegramId) {
-      showScreen('mainScreen');
-
-      document.getElementById('registeredBlock').classList.add('hidden');
-      document.getElementById('notRegisteredBlock').classList.remove('hidden');
-
-      const warning = document.createElement('div');
-      warning.className = 'telegram-warning';
-      warning.textContent =
-        'Для регистрации откройте приложение через Telegram-бот Taffy.';
-
-      document
-        .getElementById('notRegisteredBlock')
-        .appendChild(warning);
-
-      return;
-    }
-
-    try {
-      const result = await apiRequest({
-        action: 'getPartner',
-        telegramId: telegramId
-      });
-
-      showScreen('mainScreen');
-
-      if (result.registered && result.partner) {
-        currentPartner = result.partner;
-        showRegisteredHome();
-      } else {
-        showRegistrationHome();
-      }
-
-    } catch (error) {
-      showScreen('mainScreen');
-      showRegistrationHome();
-
-      console.error(error);
-    }
-  }
-
-  function showRegistrationHome() {
-    document
-      .getElementById('registeredBlock')
-      .classList.add('hidden');
-
-    document
-      .getElementById('notRegisteredBlock')
-      .classList.remove('hidden');
-  }
-
-  function showRegisteredHome() {
-    document
-      .getElementById('notRegisteredBlock')
-      .classList.add('hidden');
-
-    document
-      .getElementById('registeredBlock')
-      .classList.remove('hidden');
-
-    document.getElementById('welcomeName').textContent =
-      currentPartner?.firstName
-        ? `Здравствуйте, ${currentPartner.firstName}`
-        : 'Добро пожаловать';
-  }
-
-  document
-    .getElementById('openRegistrationButton')
-    .addEventListener('click', () => {
-
-      if (!telegramId) {
-        alert('Откройте Taffy через Telegram-бот.');
-        return;
-      }
-
-      document.getElementById('registrationMessage').innerHTML = '';
-      showScreen('registrationScreen');
-    });
-
-  document
-    .getElementById('registrationBack')
-    .addEventListener('click', () => {
-      showScreen('mainScreen');
-    });
-
-  document
-    .getElementById('registerButton')
-    .addEventListener('click', registerPartner);
-
-  async function registerPartner() {
-    const lastName =
-      document.getElementById('lastName').value.trim();
-
-    const firstName =
-      document.getElementById('firstName').value.trim();
-
-    const middleName =
-      document.getElementById('middleName').value.trim();
-
-    const phone =
-      document.getElementById('phone').value.trim();
-
-    const message =
-      document.getElementById('registrationMessage');
-
-    message.innerHTML = '';
-
-    if (!lastName || !firstName || !middleName || !phone) {
-      message.innerHTML =
-        '<div class="message error">Заполните все поля.</div>';
-      return;
-    }
-
-    if (phone.replace(/\D/g, '').length < 10) {
-      message.innerHTML =
-        '<div class="message error">Проверьте номер телефона.</div>';
-      return;
-    }
-
-    const button =
-      document.getElementById('registerButton');
-
-    button.disabled = true;
-    button.textContent = 'Регистрация...';
-
-    try {
-      const result = await apiRequest({
-        action: 'register',
-        telegramId,
-        lastName,
-        firstName,
-        middleName,
-        phone
-      });
-
-      if (result.success) {
-        message.innerHTML =
-          `<div class="message success">
-             Регистрация завершена.<br>
-             Ваш Partner ID: <b>${result.partnerId}</b>
-           </div>`;
-
-        setTimeout(async () => {
-          const partnerResult = await apiRequest({
-            action: 'getPartner',
-
-            telegramId
-          });
-
-          if (partnerResult.registered) {
-            currentPartner = partnerResult.partner;
-            showScreen('mainScreen');
-            showRegisteredHome();
-          }
-        }, 900);
-
-      } else if (result.alreadyRegistered) {
-        const partnerResult = await apiRequest({
-          action: 'getPartner',
-          telegramId
-        });
-
-        if (partnerResult.registered) {
-          currentPartner = partnerResult.partner;
-          showScreen('mainScreen');
-          showRegisteredHome();
-        }
-
-      } else {
-        throw new Error(
-          result.message || 'Не удалось зарегистрироваться'
-        );
-      }
-
-    } catch (error) {
-      message.innerHTML =
-        `<div class="message error">
-          ${error.message}
-        </div>`;
-
-    } finally {
-      button.disabled = false;
-      button.textContent = 'Зарегистрироваться';
-    }
-  }
-
-  document.querySelectorAll('.menu-item').forEach(button => {
-    button.addEventListener('click', () => {
-
-      const section = button.dataset.section;
-
-      if (section === 'profile') {
-        renderProfile();
-        showScreen('profileScreen');
-        return;
-      }
-
-      const sectionData = {
-        catalog: {
-          icon: '🛍',
-          title: 'Каталог'
-        },
-
-        cart: {
-          icon: '🛒',
-          title: 'Корзина'
-        },
-
-        orders: {
-          icon: '📦',
-          title: 'Мои заказы'
-        }
-      };
-
-      document.getElementById('comingIcon').textContent =
-        sectionData[section].icon;
-
-      document.getElementById('comingTitle').textContent =
-        sectionData[section].title;
-
-      showScreen('comingSoonScreen');
-    });
+  screens.forEach(screen => {
+    document.getElementById(screen).classList.add('hidden');
   });
 
+  document.getElementById(id).classList.remove('hidden');
+
+  const showFloatingCart =
+    id === 'catalogScreen' && cart.length > 0;
+
   document
-    .querySelectorAll('.section-back')
-    .forEach(button => {
+    .getElementById('cartFloat')
+    .classList.toggle('hidden', !showFloatingCart);
+}
 
-      button.addEventListener('click', () => {
-        showScreen('mainScreen');
-        showRegisteredHome();
-      });
 
+async function apiRequest(payload) {
+
+  const response = await fetch(API_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'text/plain;charset=utf-8'
+    },
+    body: JSON.stringify(payload)
+  });
+
+  if (!response.ok) {
+    throw new Error('Ошибка соединения с сервером');
+  }
+
+  return response.json();
+}
+
+
+/* =====================
+   START
+===================== */
+
+async function initializeApp() {
+
+  updateCartUI();
+
+  if (!telegramId) {
+    showScreen('mainScreen');
+    showRegistrationHome();
+    return;
+  }
+
+  try {
+
+    const result = await apiRequest({
+      action: 'getPartner',
+      telegramId
     });
 
-  function renderProfile() {
-    if (!currentPartner) {
+    showScreen('mainScreen');
+
+    if (result.registered && result.partner) {
+
+      currentPartner = result.partner;
+      showRegisteredHome();
+
+    } else {
+
+      showRegistrationHome();
+    }
+
+  } catch (error) {
+
+    console.error(error);
+
+    showScreen('mainScreen');
+    showRegistrationHome();
+  }
+}
+
+
+function showRegistrationHome() {
+
+  document
+    .getElementById('registeredBlock')
+    .classList.add('hidden');
+
+  document
+    .getElementById('notRegisteredBlock')
+    .classList.remove('hidden');
+}
+
+
+function showRegisteredHome() {
+
+  document
+    .getElementById('notRegisteredBlock')
+    .classList.add('hidden');
+
+  document
+    .getElementById('registeredBlock')
+    .classList.remove('hidden');
+
+  document.getElementById('welcomeName').textContent =
+    currentPartner?.firstName
+      ? `Здравствуйте, ${currentPartner.firstName}`
+      : 'Добро пожаловать';
+
+  updateCartUI();
+}
+
+
+/* =====================
+   REGISTRATION
+===================== */
+
+document
+  .getElementById('openRegistrationButton')
+  .addEventListener('click', () => {
+
+    if (!telegramId) {
+      alert('Откройте приложение через Telegram-бот Taffy.');
       return;
     }
 
-    const fullName =
-      `${currentPartner.firstName || ''} ${currentPartner.lastName || ''}`.trim();
+    showScreen('registrationScreen');
+  });
 
-    const initial =
-      (currentPartner.firstName || 'T')
-        .charAt(0)
-        .toUpperCase();
 
-    document.getElementById('profileAvatar').textContent =
-      initial;
+document
+  .getElementById('registrationBack')
+  .addEventListener('click', () => {
 
-    document.getElementById('profileName').textContent =
-      fullName;
+    showScreen('mainScreen');
 
-    document.getElementById('profilePartnerId').textContent =
-      currentPartner.partnerId || '';
-
-    document.getElementById('ordersCount').textContent =
-      currentPartner.ordersCount || 0;
-
-    document.getElementById('salesValue').textContent =
-      formatMoney(currentPartner.sales);
-
-    document.getElementById('incomeValue').textContent =
-      formatMoney(currentPartner.income);
-
-    document.getElementById('profileLastName').textContent =
-      currentPartner.lastName || '—';
-
-    document.getElementById('profileFirstName').textContent =
-      currentPartner.firstName || '—';
-
-    document.getElementById('profileMiddleName').textContent =
-      currentPartner.middleName || '—';
-
-    document.getElementById('profilePhone').textContent =
-      currentPartner.phone || '—';
-
-    document.getElementById('profileDate').textContent =
-      formatDate(currentPartner.registrationDate);
-  }
-
-  function formatMoney(value) {
-    const number = Number(value || 0);
-
-    return new Intl.NumberFormat('ru-RU', {
-      maximumFractionDigits: 0
-    }).format(number) + ' ₽';
-  }
-
-  function formatDate(value) {
-    if (!value) {
-      return '—';
+    if (currentPartner) {
+      showRegisteredHome();
+    } else {
+      showRegistrationHome();
     }
+  });
+
+
+document
+  .getElementById('registerButton')
+  .addEventListener('click', registerPartner);
+
+
+async function registerPartner() {
+
+  const lastName =
+    document.getElementById('lastName').value.trim();
+
+  const firstName =
+    document.getElementById('firstName').value.trim();
+
+  const middleName =
+    document.getElementById('middleName').value.trim();
+
+  const phone =
+    document.getElementById('phone').value.trim();
+
+  const message =
+    document.getElementById('registrationMessage');
+
+  message.innerHTML = '';
+
+  if (!lastName || !firstName || !middleName || !phone) {
+
+    message.innerHTML =
+      '<div class="message error">Заполните все поля.</div>';
+
+    return;
+  }
+
+  const button =
+    document.getElementById('registerButton');
+
+  button.disabled = true;
+  button.textContent = 'Регистрация...';
+
+  try {
+
+    const result = await apiRequest({
+      action: 'register',
+      telegramId,
+      lastName,
+      firstName,
+      middleName,
+      phone
+    });
+
+
+    const partnerResult = await apiRequest({
+      action: 'getPartner',
+      telegramId
+    });
+
+
+    if (partnerResult.registered) {
+
+      currentPartner = partnerResult.partner;
+
+      showScreen('mainScreen');
+      showRegisteredHome();
+    }
+
+
+  } catch (error) {
+
+    message.innerHTML =
+      `<div class="message error">${error.message}</div>`;
+
+  } finally {
+
+    button.disabled = false;
+    button.textContent = 'Зарегистрироваться';
+  }
+}
+
+
+/* =====================
+   MENU
+===================== */
+
+document.querySelectorAll('.menu-item').forEach(button => {
+
+  button.addEventListener('click', async () => {
+
+    const section = button.dataset.section;
+
+    if (section === 'catalog') {
+
+      showScreen('catalogScreen');
+
+      await openCatalog();
+
+      return;
+    }
+
+
+    if (section === 'cart') {
+
+      renderCart();
+
+      showScreen('cartScreen');
+
+      return;
+    }
+
+
+    if (section === 'profile') {
+
+      renderProfile();
+
+      showScreen('profileScreen');
+
+      return;
+    }
+
+
+    if (section === 'orders') {
+
+      showScreen('ordersScreen');
+    }
+  });
+});
+
+
+document.querySelectorAll('.section-back').forEach(button => {
+
+  button.addEventListener('click', () => {
+
+    showScreen('mainScreen');
+    showRegisteredHome();
+  });
+});
+
+
+/* =====================
+   CATALOG
+===================== */
+
+async function openCatalog() {
+
+  if (allProducts.length > 0) {
+
+    renderCategories();
+    renderProducts();
+
+    return;
+  }
+
+
+  document
+    .getElementById('catalogLoading')
+    .classList.remove('hidden');
+
+
+  try {
+
+    const result = await apiRequest({
+      action: 'getProducts'
+    });
+
+
+    if (!result.success) {
+
+      throw new Error(
+        result.message || 'Не удалось загрузить каталог'
+      );
+    }
+
+  allProducts = result.products || [];
+
+    renderCategories();
+    renderProducts();
+
+
+  } catch (error) {
+
+    document.getElementById('productsContainer').innerHTML =
+      `<div class="card">
+        <div class="message error">
+          ${escapeHtml(error.message)}
+        </div>
+      </div>`;
+
+  } finally {
+
+    document
+      .getElementById('catalogLoading')
+      .classList.add('hidden');
+  }
+}
+
+
+function renderCategories() {
+
+  const categories = [
+    'Все',
+    ...new Set(
+      allProducts
+        .map(product => product.category)
+        .filter(Boolean)
+    )
+  ];
+
+
+  const container =
+    document.getElementById('categoryButtons');
+
+  container.innerHTML = '';
+
+
+  categories.forEach(category => {
+
+    const button =
+      document.createElement('button');
+
+    button.className =
+      'category-button' +
+      (category === currentCategory ? ' active' : '');
+
+    button.textContent = category;
+
+
+    button.addEventListener('click', () => {
+
+      currentCategory = category;
+
+      renderCategories();
+      renderProducts();
+    });
+
+
+    container.appendChild(button);
+  });
+}
+
+
+function getVisibleProducts() {
+
+  if (currentCategory === 'Все') {
+    return allProducts;
+  }
+
+  return allProducts.filter(
+    product => product.category === currentCategory
+  );
+}
+
+
+function groupProducts(products) {
+
+  const groups = {};
+
+
+  products.forEach(product => {
+
+    const key =
+      `${product.category}__${product.name}`;
+
+
+    if (!groups[key]) {
+
+      groups[key] = {
+        category: product.category,
+        name: product.name,
+        variants: []
+      };
+    }
+
+
+    groups[key].variants.push(product);
+  });
+
+
+  return Object.values(groups);
+}
+
+
+function renderProducts() {
+
+  const container =
+    document.getElementById('productsContainer');
+
+  container.innerHTML = '';
+
+
+  const visibleProducts =
+    getVisibleProducts();
+
+
+  if (!visibleProducts.length) {
+
+    container.innerHTML =
+      '<div class="empty-state">В этой категории пока нет товаров.</div>';
+
+    return;
+  }
+
+
+  const groups =
+    groupProducts(visibleProducts);
+
+
+  groups.forEach(group => {
+
+    container.appendChild(
+      createProductCard(group)
+    );
+  });
+}
+
+
+function createProductCard(group) {
+
+  const card =
+    document.createElement('div');
+
+  card.className = 'product-card';
+
+
+  const variants =
+    group.variants.filter(item => item.available);
+
+
+  const allVariants =
+    group.variants;
+
+
+  const isDiaper =
+    String(group.category)
+      .toLowerCase()
+      .includes('подгуз');
+
+
+  let selectedVariant =
+    variants[0] || allVariants[0];
+
+
+  const imageWrap =
+    document.createElement('div');
+
+  imageWrap.className =
+    'product-image-wrap';
+
+
+  const image =
+    document.createElement('img');
+
+  image.className =
+    'product-image';
+
+  image.alt =
+    group.name || 'Товар Taffy';
+
+  image.src =
+    selectedVariant?.photo || '';
+
+
+  const placeholder =
+    document.createElement('div');
+
+  placeholder.className =
+    'image-placeholder hidden';
+
+  placeholder.textContent =
+    'Фото скоро появится';
+
+
+  image.addEventListener('error', () => {
+
+    image.classList.add('hidden');
+    placeholder.classList.remove('hidden');
+  });
+
+
+  imageWrap.appendChild(image);
+  imageWrap.appendChild(placeholder);
+
+
+  const body =
+    document.createElement('div');
+
+  body.className =
+    'product-body';
+
+
+  const category =
+    document.createElement('div');
+
+  category.className =
+    'product-category';
+
+  category.textContent =
+    group.category;
+
+
+  const name =
+    document.createElement('div');
+
+  name.className =
+    'product-name';
+
+  name.textContent =
+    group.name;
+
+
+  const availability =
+    document.createElement('div');
+
+  availability.className =
+    'availability';
+
+
+  const price =
+    document.createElement('div');
+
+  price.className =
+    'price';
+
+
+  const addButton =
+    document.createElement('button');
+
+  addButton.className =
+    'add-button';
+
+  addButton.textContent =
+    'В корзину';
+body.appendChild(category);
+  body.appendChild(name);
+
+
+  if (isDiaper) {
+
+    createDiaperSelectors(
+      body,
+      group,
+      selected => {
+
+        selectedVariant = selected;
+
+        updateProductCardState();
+      }
+    );
+
+  } else {
+
+    createStandardSelector(
+      body,
+      group,
+      selected => {
+
+        selectedVariant = selected;
+
+        updateProductCardState();
+      }
+    );
+  }
+
+
+  const bottom =
+    document.createElement('div');
+
+  bottom.className =
+    'product-bottom';
+
+  bottom.appendChild(price);
+  bottom.appendChild(addButton);
+
+
+  body.appendChild(availability);
+  body.appendChild(bottom);
+
+
+  card.appendChild(imageWrap);
+  card.appendChild(body);
+
+
+  function updateProductCardState() {
+
+    if (!selectedVariant) {
+      return;
+    }
+
+
+    price.textContent =
+      formatMoney(selectedVariant.price);
+
+
+    if (selectedVariant.available) {
+
+      availability.textContent =
+        'В наличии';
+
+      availability.className =
+        'availability';
+
+      addButton.disabled = false;
+
+    } else {
+
+      availability.textContent =
+        'Нет в наличии';
+
+      availability.className =
+        'availability unavailable';
+
+      addButton.disabled = true;
+    }
+
+
+    image.classList.remove('hidden');
+    placeholder.classList.add('hidden');
+
+    image.src =
+      selectedVariant.photo || '';
+  }
+
+
+  addButton.addEventListener('click', () => {
+
+    if (!selectedVariant) {
+      return;
+    }
+
+    addToCart(selectedVariant);
+  });
+
+
+  updateProductCardState();
+
+  return card;
+}
+
+
+function createDiaperSelectors(
+  body,
+  group,
+  onVariantChange
+) {
+
+  const sizes = [
+    ...new Set(
+      group.variants
+        .map(item => item.size)
+        .filter(Boolean)
+    )
+  ];
+
+
+  let selectedSize =
+    sizes[0] || '';
+
+
+  let selectedPackage = '';
+
+
+  const sizeBlock =
+    document.createElement('div');
+
+  sizeBlock.className =
+    'variant-row';
+
+
+  const sizeLabel =
+    document.createElement('div');
+
+  sizeLabel.className =
+    'variant-label';
+
+  sizeLabel.textContent =
+    'Размер';
+
+
+  const sizeButtons =
+    document.createElement('div');
+
+  sizeButtons.className =
+    'option-buttons';
+
+
+  sizeBlock.appendChild(sizeLabel);
+  sizeBlock.appendChild(sizeButtons);
+
+
+  const packageBlock =
+    document.createElement('div');
+
+  packageBlock.className =
+    'variant-row';
+
+
+  const packageLabel =
+    document.createElement('div');
+
+  packageLabel.className =
+    'variant-label';
+
+  packageLabel.textContent =
+    'Упаковка';
+
+
+  const packageButtons =
+    document.createElement('div');
+
+  packageButtons.className =
+    'option-buttons';
+
+
+  packageBlock.appendChild(packageLabel);
+  packageBlock.appendChild(packageButtons);
+
+
+  body.appendChild(sizeBlock);
+  body.appendChild(packageBlock);
+
+
+  function renderSizes() {
+
+    sizeButtons.innerHTML = '';
+
+
+    sizes.forEach(size => {
+
+      const button =
+        document.createElement('button');
+
+      button.className =
+        'option-button' +
+        (size === selectedSize
+          ? ' selected'
+          : '');
+
+      button.textContent =
+        size;
+
+
+      button.addEventListener('click', () => {
+
+        selectedSize = size;
+
+        renderSizes();
+        renderPackages();
+      });
+
+
+      sizeButtons.appendChild(button);
+    });
+  }
+
+
+  function renderPackages() {
+
+    packageButtons.innerHTML = '';
+
+
+    const variantsForSize =
+      group.variants.filter(
+        item => item.size === selectedSize
+      );
+
+
+    if (!variantsForSize.length) {
+      return;
+    }
+
 
     if (
-      typeof value === 'string' &&
-      /^\d{2}\.\d{2}\.\d{4}$/.test(value)
+      !variantsForSize.some(
+        item => item.package === selectedPackage
+      )
     ) {
-      return value;
+
+      selectedPackage =
+        variantsForSize[0].package;
     }
 
-    const date = new Date(value);
 
-    if (Number.isNaN(date.getTime())) {
-      return String(value);
-    }
+    variantsForSize.forEach(variant => {
 
-    return date.toLocaleDateString('ru-RU');
+      const button =
+        document.createElement('button');
+
+      button.className =
+        'option-button' +
+        (
+          variant.package === selectedPackage
+            ? ' selected'
+            : ''
+        );
+
+
+      button.textContent =
+        variant.package || 'Упаковка';
+
+
+      button.addEventListener('click', () => {
+
+        selectedPackage =
+          variant.package;
+
+        renderPackages();
+      });
+
+
+      packageButtons.appendChild(button);
+    });
+
+
+    const selectedVariant =
+      variantsForSize.find(
+        item =>
+          item.package === selectedPackage
+      ) || variantsForSize[0];
+
+
+    onVariantChange(selectedVariant);
   }
 
-  initializeApp();
+
+  renderSizes();
+  renderPackages();
+}
+
+
+function createStandardSelector(
+  body,
+  group,
+  onVariantChange
+) {
+
+  if (group.variants.length === 1) {
+
+    onVariantChange(group.variants[0]);
+
+    return;
+  }
+
+
+  const block =
+    document.createElement('div');
+
+  block.className =
+    'variant-row';
+
+
+  const label =
+    document.createElement('div');
+
+  label.className =
+    'variant-label';
+
+  label.textContent =
+    'Вариант';
+
+
+  const buttons =
+    document.createElement('div');
+
+  buttons.className =
+    'option-buttons';
+
+
+  let selected =
+    group.variants[0];
+
+
+  group.variants.forEach(variant => {
+
+    const button =
+      document.createElement('button');
+
+    button.className =
+      'option-button' +
+      (
+        variant.productId === selected.productId
+          ? ' selected'
+          : ''
+      );
+
+
+    button.textContent =
+      variant.package ||
+      variant.size ||
+      variant.productId;
+
+
+    button.addEventListener('click', () => {
+
+      selected = variant;
+
+
+      [...buttons.children].forEach(child => {
+        child.classList.remove('selected');
+      });
+
+
+      button.classList.add('selected');
+
+      onVariantChange(selected);
+    });
+
+
+    buttons.appendChild(button);
+  });
+
+
+  block.appendChild(label);
+  block.appendChild(buttons);
+
+  body.appendChild(block);
+
+
+  onVariantChange(selected);
+}
+
+
+/* =====================
+   CART
+===================== */
+
+function addToCart(product) {
+
+  const existing =
+    cart.find(
+      item =>
+        item.productId === product.productId
+    );
+
+
+  if (existing) {
+
+    existing.quantity += 1;
+
+  } else {
+
+    cart.push({
+      productId: product.productId,
+      category: product.category,
+      name: product.name,
+      size: product.size,
+      package: product.package,
+      price: Number(product.price || 0),
+      photo: product.photo,
+      quantity: 1
+    });
+  }
+
+
+  saveCart();
+  showToast('Добавлено в корзину');
+}
+
+
+function saveCart() {
+
+  localStorage.setItem(
+    'taffy_cart',
+    JSON.stringify(cart)
+  );
+
+  updateCartUI();
+}
+
+
+function updateCartUI() {
+
+  const count =
+    cart.reduce(
+      (sum, item) =>
+        sum + Number(item.quantity || 0),
+      0
+    );
+
+
+  const total =
+    cart.reduce(
+      (sum, item) =>
+        sum +
+        Number(item.price || 0) *
+        Number(item.quantity || 0),
+      0
+    );
+
+
+  document.getElementById(
+    'cartFloatInfo'
+  ).textContent =
+    `${count} · ${formatMoney(total)}`;
+
+
+  document.getElementById(
+    'homeCartDescription'
+  ).textContent =
+    count
+      ? `${count} товар(а) · ${formatMoney(total)}`
+      : 'Ваш заказ';
+
+
+  const currentCatalogVisible =
+    !document
+      .getElementById('catalogScreen')
+      .classList
+      .contains('hidden');
+
+
+  document
+    .getElementById('cartFloat')
+    .classList.toggle(
+      'hidden',
+      !currentCatalogVisible || count === 0
+    );
+}
+
+
+document
+  .getElementById('cartFloatButton')
+  .addEventListener('click', () => {
+
+    renderCart();
+    showScreen('cartScreen');
+  });
+
+
+function renderCart() {
+
+  const container =
+    document.getElementById('cartContainer');
+
+  const totalBlock =
+    document.getElementById('cartTotalBlock');
+
+  container.innerHTML = '';
+
+
+  if (!cart.length) {
+
+    container.innerHTML =
+      `<div class="card" style="text-align:center;padding:45px 20px">
+        <div style="font-size:40px;margin-bottom:15px">🛒</div>
+        <h2>Корзина пустая</h2>
+        <p class="muted">
+          Добавьте товары из каталога.
+        </p>
+      </div>`;
+
+    totalBlock.classList.add('hidden');
+
+    return;
+  }
+
+  cart.forEach(item => {
+
+    const card =
+      document.createElement('div');
+
+    card.className =
+      'cart-item';
+
+
+    const image =
+      document.createElement('img');
+
+    image.className =
+      'cart-image';
+
+    image.src =
+      item.photo || '';
+
+    image.alt =
+      item.name;
+
+
+    const info =
+      document.createElement('div');
+
+
+    const name =
+      document.createElement('div');
+
+    name.className =
+      'cart-item-name';
+
+    name.textContent =
+      item.name;
+
+
+    const meta =
+      document.createElement('div');
+
+    meta.className =
+      'cart-item-meta';
+
+
+    const metaParts = [];
+
+    if (item.size) {
+      metaParts.push(`Размер ${item.size}`);
+    }
+
+    if (item.package) {
+      metaParts.push(item.package);
+    }
+
+
+    meta.textContent =
+      metaParts.join(' · ');
+
+
+    const bottom =
+      document.createElement('div');
+
+    bottom.className =
+      'cart-item-bottom';
+
+
+    const price =
+      document.createElement('strong');
+
+    price.textContent =
+      formatMoney(
+        Number(item.price) *
+        Number(item.quantity)
+      );
+
+
+    const quantity =
+      document.createElement('div');
+
+    quantity.className =
+      'quantity-control';
+
+
+    const minus =
+      document.createElement('button');
+
+    minus.className =
+      'quantity-button';
+
+    minus.textContent =
+      '−';
+
+
+    const number =
+      document.createElement('span');
+
+    number.textContent =
+      item.quantity;
+
+
+    const plus =
+      document.createElement('button');
+
+    plus.className =
+      'quantity-button';
+
+    plus.textContent =
+      '+';
+
+
+    minus.addEventListener('click', () => {
+
+      item.quantity -= 1;
+
+      if (item.quantity <= 0) {
+
+        cart =
+          cart.filter(
+            cartItem =>
+              cartItem.productId !== item.productId
+          );
+      }
+
+
+      saveCart();
+      renderCart();
+    });
+
+
+    plus.addEventListener('click', () => {
+
+      item.quantity += 1;
+
+      saveCart();
+      renderCart();
+    });
+
+
+    quantity.appendChild(minus);
+    quantity.appendChild(number);
+    quantity.appendChild(plus);
+
+
+    bottom.appendChild(quantity);
+    bottom.appendChild(price);
+
+
+    const remove =
+      document.createElement('button');
+
+    remove.className =
+      'remove-button';
+
+    remove.textContent =
+      'Удалить';
+
+
+    remove.addEventListener('click', () => {
+
+      cart =
+        cart.filter(
+          cartItem =>
+            cartItem.productId !== item.productId
+        );
+
+      saveCart();
+      renderCart();
+    });
+
+
+    info.appendChild(name);
+    info.appendChild(meta);
+    info.appendChild(bottom);
+    info.appendChild(remove);
+
+
+    card.appendChild(image);
+    card.appendChild(info);
+
+
+    container.appendChild(card);
+  });
+
+
+  const total =
+    cart.reduce(
+      (sum, item) =>
+        sum +
+        Number(item.price || 0) *
+        Number(item.quantity || 0),
+      0
+    );
+
+
+  document.getElementById(
+    'cartTotal'
+  ).textContent =
+    formatMoney(total);
+
+
+  totalBlock.classList.remove('hidden');
+}
+
+
+/* =====================
+   PROFILE
+===================== */
+
+function renderProfile() {
+
+  if (!currentPartner) {
+    return;
+  }
+
+
+  const fullName =
+    `${currentPartner.firstName || ''} ${currentPartner.lastName || ''}`.trim();
+
+
+  document.getElementById(
+    'profileAvatar'
+  ).textContent =
+    (currentPartner.firstName || 'T')
+      .charAt(0)
+      .toUpperCase();
+
+
+  document.getElementById(
+    'profileName'
+  ).textContent =
+    fullName;
+
+
+  document.getElementById(
+    'profilePartnerId'
+  ).textContent =
+    currentPartner.partnerId || '';
+
+
+  document.getElementById(
+    'ordersCount'
+  ).textContent =
+    currentPartner.ordersCount || 0;
+
+
+  document.getElementById(
+    'salesValue'
+  ).textContent =
+    formatMoney(currentPartner.sales);
+
+
+  document.getElementById(
+    'incomeValue'
+  ).textContent =
+    formatMoney(currentPartner.income);
+
+
+  document.getElementById(
+    'profileLastName'
+  ).textContent =
+
+    currentPartner.lastName || '—';
+
+
+  document.getElementById(
+    'profileFirstName'
+  ).textContent =
+    currentPartner.firstName || '—';
+
+
+  document.getElementById(
+    'profileMiddleName'
+  ).textContent =
+    currentPartner.middleName || '—';
+
+
+  document.getElementById(
+    'profilePhone'
+  ).textContent =
+    currentPartner.phone || '—';
+
+
+  document.getElementById(
+    'profileDate'
+  ).textContent =
+    formatDate(currentPartner.registrationDate);
+}
+
+
+/* =====================
+   HELPERS
+===================== */
+
+function formatMoney(value) {
+
+  return new Intl.NumberFormat(
+    'ru-RU',
+    {
+      maximumFractionDigits: 0
+    }
+  ).format(
+    Number(value || 0)
+  ) + ' ₽';
+}
+
+
+function formatDate(value) {
+
+  if (!value) {
+    return '—';
+  }
+
+
+  if (
+    typeof value === 'string' &&
+    /^\d{2}\.\d{2}\.\d{4}$/.test(value)
+  ) {
+    return value;
+  }
+
+
+  const date =
+    new Date(value);
+
+
+  if (
+    Number.isNaN(date.getTime())
+  ) {
+    return String(value);
+  }
+
+
+  return date.toLocaleDateString('ru-RU');
+}
+
+
+function escapeHtml(value) {
+
+  return String(value || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+
+let toastTimer = null;
+
+function showToast(text) {
+
+  const toast =
+    document.getElementById('toast');
+
+  toast.textContent =
+    text;
+
+  toast.classList.add('show');
+
+
+  clearTimeout(toastTimer);
+
+
+  toastTimer =
+    setTimeout(() => {
+
+      toast.classList.remove('show');
+
+    }, 1400);
+}
+
+
+initializeApp();
+
 </script>
 
 </body>
 </html>
+
+
+  
