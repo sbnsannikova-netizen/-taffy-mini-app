@@ -2,12 +2,16 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
   <title>Taffy Partners</title>
+
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
   <style>
     * {
       box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
     }
 
     body {
@@ -17,144 +21,897 @@
       color: #241f2b;
     }
 
+    button,
+    input {
+      font-family: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
     .app {
+      width: 100%;
       max-width: 520px;
       margin: 0 auto;
-      padding: 28px 20px 40px;
+      padding: 28px 20px 45px;
+    }
+
+    .hidden {
+      display: none !important;
     }
 
     .brand {
       text-align: center;
-      margin-bottom: 38px;
+      margin: 18px 0 34px;
     }
 
     .logo {
-      font-size: 32px;
-      font-weight: 700;
-      letter-spacing: 4px;
       color: #76558f;
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: 5px;
     }
 
     .subtitle {
-      margin-top: 8px;
+      color: #9a929f;
+      margin-top: 7px;
       font-size: 14px;
-      color: #8e8793;
     }
 
-    .welcome {
-      background: white;
+    .card {
+      background: #ffffff;
       border-radius: 24px;
-      padding: 25px 22px;
-      margin-bottom: 20px;
+      padding: 24px 22px;
+      margin-bottom: 18px;
       box-shadow: 0 8px 30px rgba(71, 45, 87, 0.06);
     }
 
-    .welcome h1 {
-      margin: 0 0 10px;
-      font-size: 24px;
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
     }
 
-    .welcome p {
-      margin: 0;
-      color: #77717c;
+    h1 {
+      font-size: 25px;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 21px;
+      margin-bottom: 16px;
+    }
+
+    .muted {
+      color: #85808a;
       line-height: 1.5;
+    }
+
+    .primary-button {
+      width: 100%;
+      border: none;
+      border-radius: 17px;
+      padding: 17px;
+      background: #76558f;
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 650;
+    }
+
+    .secondary-button {
+      width: 100%;
+      border: 1px solid #ded6e4;
+      border-radius: 17px;
+      padding: 15px;
+      background: #ffffff;
+      color: #76558f;
+      font-size: 15px;
+      font-weight: 600;
     }
 
     .menu {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
+      margin-top: 18px;
     }
 
     .menu-item {
-      background: white;
-      border-radius: 20px;
-      padding: 22px 16px;
-      min-height: 125px;
+      border: none;
+      text-align: left;
+      background: #ffffff;
+      min-height: 132px;
+      border-radius: 22px;
+      padding: 20px 17px;
       box-shadow: 0 8px 30px rgba(71, 45, 87, 0.05);
+      color: #241f2b;
     }
 
-    .icon {
-      font-size: 27px;
-      margin-bottom: 17px;
+    .menu-icon {
+      font-size: 25px;
+      margin-bottom: 18px;
     }
 
     .menu-title {
       font-size: 16px;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .menu-description {
-      margin-top: 5px;
+      color: #9a949d;
       font-size: 12px;
-      color: #96909a;
+      margin-top: 5px;
     }
 
-    .register {
-      width: 100%;
-      margin-top: 22px;
-      padding: 17px;
-      border: none;
-      border-radius: 17px;
-      background: #76558f;
-      color: white;
-      font-size: 16px;
+    .field {
+      margin-bottom: 15px;
+    }
+
+    .field label {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 13px;
       font-weight: 600;
-      cursor: pointer;
+      color: #625c67;
+    }
+
+    .field input {
+      width: 100%;
+      border: 1px solid #ded8e2;
+      border-radius: 15px;
+      background: #ffffff;
+      padding: 14px 15px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .field input:focus {
+      border-color: #8c6ba4;
+    }
+
+    .form-actions {
+      margin-top: 22px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .message {
+      border-radius: 15px;
+      padding: 13px 14px;
+      margin-bottom: 16px;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .error {
+      background: #fff1f1;
+      color: #8d3535;
+    }
+
+    .success {
+      background: #f0f8f2;
+      color: #356642;
+    }
+
+    .loading {
+      text-align: center;
+      padding: 70px 15px;
+    }
+
+    .spinner {
+      width: 38px;
+      height: 38px;
+      border: 4px solid #e8e1ed;
+      border-top-color: #76558f;
+      border-radius: 50%;
+      margin: 0 auto 18px;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .profile-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 22px;
+    }
+
+    .avatar {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: #ede5f2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #76558f;
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .profile-name {
+      font-weight: 700;
+      font-size: 19px;
+    }
+
+    .partner-id {
+      margin-top: 4px;
+      color: #8d8591;
+      font-size: 13px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 9px;
+      margin-bottom: 20px;
+    }
+
+    .stat {
+      background: #f7f3fa;
+      border-radius: 17px;
+      padding: 14px 9px;
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 17px;
+      font-weight: 750;
+      color: #5f4477;
+    }
+
+    .stat-label {
+      margin-top: 5px;
+      color: #918996;
+      font-size: 10px;
+    }
+
+    .profile-row {
+      padding: 14px 0;
+      border-bottom: 1px solid #eee9f0;
+    }
+
+    .profile-row:last-child {
+      border-bottom: none;
+    }
+
+    .profile-label {
+      color: #96909a;
+      font-size: 12px;
+      margin-bottom: 4px;
+    }
+
+    .profile-value {
+      font-size: 15px;
+    }
+
+    .back-button {
+      background: transparent;
+      border: none;
+      padding: 4px 0 17px;
+      font-size: 15px;
+      color: #76558f;
+      font-weight: 600;
+    }
+
+    .coming-soon {
+      text-align: center;
+      padding: 50px 15px;
+    }
+
+    .coming-icon {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .telegram-warning {
+      margin-top: 18px;
+      font-size: 12px;
+      color: #a099a4;
+      text-align: center;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="app">
+<div class="app">
+
+  <div id="loadingScreen" class="loading">
+    <div class="spinner"></div>
+    <div class="muted">Загружаем Taffy...</div>
+  </div>
+
+  <div id="mainScreen" class="hidden">
 
     <div class="brand">
       <div class="logo">TAFFY</div>
       <div class="subtitle">Партнёрская программа</div>
     </div>
 
-    <div class="welcome">
-      <h1>Добро пожаловать</h1>
-      <p>
-        Здесь вы сможете работать с продукцией Taffy,
-        оформлять заказы и следить за своими результатами.
+    <div id="notRegisteredBlock" class="hidden">
+
+      <div class="card">
+        <h1>Добро пожаловать</h1>
+        <p class="muted">
+          Зарегистрируйтесь в партнёрской программе Taffy,
+          чтобы работать с каталогом и оформлять заказы.
+        </p>
+      </div>
+
+      <button id="openRegistrationButton" class="primary-button">
+        Зарегистрироваться
+      </button>
+
+    </div>
+
+    <div id="registeredBlock" class="hidden">
+
+      <div class="card">
+        <h1 id="welcomeName">Добро пожаловать</h1>
+        <p class="muted">
+          Управляйте заказами, каталогом и своими результатами в одном месте.
+        </p>
+      </div>
+
+      <div class="menu">
+
+        <button class="menu-item" data-section="catalog">
+          <div class="menu-icon">🛍</div>
+          <div class="menu-title">Каталог</div>
+          <div class="menu-description">Продукция Taffy</div>
+        </button>
+
+        <button class="menu-item" data-section="cart">
+          <div class="menu-icon">🛒</div>
+          <div class="menu-title">Корзина</div>
+          <div class="menu-description">Ваш заказ</div>
+        </button>
+
+        <button class="menu-item" data-section="orders">
+          <div class="menu-icon">📦</div>
+          <div class="menu-title">Мои заказы</div>
+          <div class="menu-description">История заказов</div>
+        </button>
+
+        <button class="menu-item" data-section="profile">
+          <div class="menu-icon">👤</div>
+          <div class="menu-title">Профиль</div>
+          <div class="menu-description">Данные партнёра</div>
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div id="registrationScreen" class="hidden">
+
+    <button class="back-button" id="registrationBack">
+      ← Назад
+    </button>
+
+    <div class="brand">
+      <div class="logo">TAFFY</div>
+      <div class="subtitle">Регистрация партнёра</div>
+    </div>
+
+    <div class="card">
+
+      <h2>Ваши данные</h2>
+
+      <div id="registrationMessage"></div>
+
+      <div class="field">
+        <label for="lastName">Фамилия</label>
+        <input id="lastName" type="text" autocomplete="family-name">
+      </div>
+
+      <div class="field">
+        <label for="firstName">Имя</label>
+        <input id="firstName" type="text" autocomplete="given-name">
+      </div>
+
+      <div class="field">
+        <label for="middleName">Отчество</label>
+        <input id="middleName" type="text">
+      </div>
+
+      <div class="field">
+        <label for="phone">Номер телефона</label>
+        <input
+          id="phone"
+          type="tel"
+          inputmode="tel"
+          placeholder="+7 999 123-45-67"
+          autocomplete="tel"
+        >
+      </div>
+
+      <div class="form-actions">
+        <button id="registerButton" class="primary-button">
+          Зарегистрироваться
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div id="profileScreen" class="hidden">
+
+    <button class="back-button section-back">
+      ← Главная
+    </button>
+
+    <div class="brand">
+      <div class="logo">TAFFY</div>
+      <div class="subtitle">Личный кабинет</div>
+    </div>
+
+    <div class="card">
+
+      <div class="profile-header">
+
+        <div class="avatar" id="profileAvatar">
+          T
+        </div>
+
+        <div>
+          <div class="profile-name" id="profileName"></div>
+          <div class="partner-id" id="profilePartnerId"></div>
+        </div>
+
+      </div>
+
+      <div class="stats">
+
+        <div class="stat">
+          <div class="stat-value" id="ordersCount">0</div>
+          <div class="stat-label">Заказов</div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-value" id="salesValue">0 ₽</div>
+          <div class="stat-label">Продажи</div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-value" id="incomeValue">0 ₽</div>
+          <div class="stat-label">Доход</div>
+        </div>
+
+      </div>
+
+      <div class="profile-row">
+        <div class="profile-label">Фамилия</div>
+        <div class="profile-value" id="profileLastName"></div>
+      </div>
+
+      <div class="profile-row">
+        <div class="profile-label">Имя</div>
+        <div class="profile-value" id="profileFirstName"></div>
+      </div>
+
+      <div class="profile-row">
+        <div class="profile-label">Отчество</div>
+        <div class="profile-value" id="profileMiddleName"></div>
+      </div>
+
+      <div class="profile-row">
+        <div class="profile-label">Телефон</div>
+        <div class="profile-value" id="profilePhone"></div>
+      </div>
+
+      <div class="profile-row">
+        <div class="profile-label">Дата регистрации</div>
+        <div class="profile-value" id="profileDate"></div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div id="comingSoonScreen" class="hidden">
+
+    <button class="back-button section-back">
+      ← Главная
+    </button>
+
+    <div class="brand">
+      <div class="logo">TAFFY</div>
+    </div>
+
+    <div class="card coming-soon">
+      <div id="comingIcon" class="coming-icon"></div>
+      <h2 id="comingTitle"></h2>
+      <p class="muted">
+        Этот раздел подключим следующим этапом.
       </p>
     </div>
 
-    <div class="menu">
-
-      <div class="menu-item">
-        <div class="icon">🛍</div>
-        <div class="menu-title">Каталог</div>
-        <div class="menu-description">Продукция Taffy</div>
-      </div>
-
-      <div class="menu-item">
-        <div class="icon">🛒</div>
-        <div class="menu-title">Корзина</div>
-        <div class="menu-description">Ваш заказ</div>
-      </div>
-
-      <div class="menu-item">
-        <div class="icon">📦</div>
-        <div class="menu-title">Мои заказы</div>
-        <div class="menu-description">История заказов</div>
-      </div>
-
-      <div class="menu-item">
-        <div class="icon">👤</div>
-        <div class="menu-title">Профиль</div>
-        <div class="menu-description">Данные партнёра</div>
-      </div>
-
-    </div>
-
-    <button class="register">
-      Зарегистрироваться
-    </button>
-
   </div>
+
+</div>
+
+<script>
+  const API_URL =
+    'https://script.google.com/macros/s/AKfycbyElK6eTJQqoZlcAwYbhCJtMLxNJ8pAV8JcZWhL-UWGEMGPqomrAWPIukl_nTSEp-Vn/exec';
+
+  const tg = window.Telegram?.WebApp;
+
+  let telegramId = null;
+  let currentPartner = null;
+
+  if (tg) {
+    tg.ready();
+    tg.expand();
+
+    if (tg.initDataUnsafe && tg.initDataUnsafe.user) {
+      telegramId = String(tg.initDataUnsafe.user.id);
+    }
+  }
+
+  const screens = [
+    'loadingScreen',
+    'mainScreen',
+    'registrationScreen',
+    'profileScreen',
+    'comingSoonScreen'
+  ];
+
+  function showScreen(screenId) {
+    screens.forEach(id => {
+      document.getElementById(id).classList.add('hidden');
+    });
+
+    document.getElementById(screenId).classList.remove('hidden');
+  }
+
+  async function apiRequest(payload) {
+    const response = await fetch(API_URL, {
+      method: 'POST',
+
+      /*
+      text/plain специально используется для Google Apps Script,
+        чтобы браузер не делал лишний CORS preflight.
+      */
+      headers: {
+        'Content-Type': 'text/plain;charset=utf-8'
+      },
+
+      body: JSON.stringify(payload)
+    });
+
+    if (!response.ok) {
+      throw new Error('Ошибка соединения с сервером');
+    }
+
+    return await response.json();
+  }
+
+  async function initializeApp() {
+    if (!telegramId) {
+      showScreen('mainScreen');
+
+      document.getElementById('registeredBlock').classList.add('hidden');
+      document.getElementById('notRegisteredBlock').classList.remove('hidden');
+
+      const warning = document.createElement('div');
+      warning.className = 'telegram-warning';
+      warning.textContent =
+        'Для регистрации откройте приложение через Telegram-бот Taffy.';
+
+      document
+        .getElementById('notRegisteredBlock')
+        .appendChild(warning);
+
+      return;
+    }
+
+    try {
+      const result = await apiRequest({
+        action: 'getPartner',
+        telegramId: telegramId
+      });
+
+      showScreen('mainScreen');
+
+      if (result.registered && result.partner) {
+        currentPartner = result.partner;
+        showRegisteredHome();
+      } else {
+        showRegistrationHome();
+      }
+
+    } catch (error) {
+      showScreen('mainScreen');
+      showRegistrationHome();
+
+      console.error(error);
+    }
+  }
+
+  function showRegistrationHome() {
+    document
+      .getElementById('registeredBlock')
+      .classList.add('hidden');
+
+    document
+      .getElementById('notRegisteredBlock')
+      .classList.remove('hidden');
+  }
+
+  function showRegisteredHome() {
+    document
+      .getElementById('notRegisteredBlock')
+      .classList.add('hidden');
+
+    document
+      .getElementById('registeredBlock')
+      .classList.remove('hidden');
+
+    document.getElementById('welcomeName').textContent =
+      currentPartner?.firstName
+        ? `Здравствуйте, ${currentPartner.firstName}`
+        : 'Добро пожаловать';
+  }
+
+  document
+    .getElementById('openRegistrationButton')
+    .addEventListener('click', () => {
+
+      if (!telegramId) {
+        alert('Откройте Taffy через Telegram-бот.');
+        return;
+      }
+
+      document.getElementById('registrationMessage').innerHTML = '';
+      showScreen('registrationScreen');
+    });
+
+  document
+    .getElementById('registrationBack')
+    .addEventListener('click', () => {
+      showScreen('mainScreen');
+    });
+
+  document
+    .getElementById('registerButton')
+    .addEventListener('click', registerPartner);
+
+  async function registerPartner() {
+    const lastName =
+      document.getElementById('lastName').value.trim();
+
+    const firstName =
+      document.getElementById('firstName').value.trim();
+
+    const middleName =
+      document.getElementById('middleName').value.trim();
+
+    const phone =
+      document.getElementById('phone').value.trim();
+
+    const message =
+      document.getElementById('registrationMessage');
+
+    message.innerHTML = '';
+
+    if (!lastName || !firstName || !middleName || !phone) {
+      message.innerHTML =
+        '<div class="message error">Заполните все поля.</div>';
+      return;
+    }
+
+    if (phone.replace(/\D/g, '').length < 10) {
+      message.innerHTML =
+        '<div class="message error">Проверьте номер телефона.</div>';
+      return;
+    }
+
+    const button =
+      document.getElementById('registerButton');
+
+    button.disabled = true;
+    button.textContent = 'Регистрация...';
+
+    try {
+      const result = await apiRequest({
+        action: 'register',
+        telegramId,
+        lastName,
+        firstName,
+        middleName,
+        phone
+      });
+
+      if (result.success) {
+        message.innerHTML =
+          `<div class="message success">
+             Регистрация завершена.<br>
+             Ваш Partner ID: <b>${result.partnerId}</b>
+           </div>`;
+
+        setTimeout(async () => {
+          const partnerResult = await apiRequest({
+            action: 'getPartner',
+
+            telegramId
+          });
+
+          if (partnerResult.registered) {
+            currentPartner = partnerResult.partner;
+            showScreen('mainScreen');
+            showRegisteredHome();
+          }
+        }, 900);
+
+      } else if (result.alreadyRegistered) {
+        const partnerResult = await apiRequest({
+          action: 'getPartner',
+          telegramId
+        });
+
+        if (partnerResult.registered) {
+          currentPartner = partnerResult.partner;
+          showScreen('mainScreen');
+          showRegisteredHome();
+        }
+
+      } else {
+        throw new Error(
+          result.message || 'Не удалось зарегистрироваться'
+        );
+      }
+
+    } catch (error) {
+      message.innerHTML =
+        `<div class="message error">
+          ${error.message}
+        </div>`;
+
+    } finally {
+      button.disabled = false;
+      button.textContent = 'Зарегистрироваться';
+    }
+  }
+
+  document.querySelectorAll('.menu-item').forEach(button => {
+    button.addEventListener('click', () => {
+
+      const section = button.dataset.section;
+
+      if (section === 'profile') {
+        renderProfile();
+        showScreen('profileScreen');
+        return;
+      }
+
+      const sectionData = {
+        catalog: {
+          icon: '🛍',
+          title: 'Каталог'
+        },
+
+        cart: {
+          icon: '🛒',
+          title: 'Корзина'
+        },
+
+        orders: {
+          icon: '📦',
+          title: 'Мои заказы'
+        }
+      };
+
+      document.getElementById('comingIcon').textContent =
+        sectionData[section].icon;
+
+      document.getElementById('comingTitle').textContent =
+        sectionData[section].title;
+
+      showScreen('comingSoonScreen');
+    });
+  });
+
+  document
+    .querySelectorAll('.section-back')
+    .forEach(button => {
+
+      button.addEventListener('click', () => {
+        showScreen('mainScreen');
+        showRegisteredHome();
+      });
+
+    });
+
+  function renderProfile() {
+    if (!currentPartner) {
+      return;
+    }
+
+    const fullName =
+      `${currentPartner.firstName || ''} ${currentPartner.lastName || ''}`.trim();
+
+    const initial =
+      (currentPartner.firstName || 'T')
+        .charAt(0)
+        .toUpperCase();
+
+    document.getElementById('profileAvatar').textContent =
+      initial;
+
+    document.getElementById('profileName').textContent =
+      fullName;
+
+    document.getElementById('profilePartnerId').textContent =
+      currentPartner.partnerId || '';
+
+    document.getElementById('ordersCount').textContent =
+      currentPartner.ordersCount || 0;
+
+    document.getElementById('salesValue').textContent =
+      formatMoney(currentPartner.sales);
+
+    document.getElementById('incomeValue').textContent =
+      formatMoney(currentPartner.income);
+
+    document.getElementById('profileLastName').textContent =
+      currentPartner.lastName || '—';
+
+    document.getElementById('profileFirstName').textContent =
+      currentPartner.firstName || '—';
+
+    document.getElementById('profileMiddleName').textContent =
+      currentPartner.middleName || '—';
+
+    document.getElementById('profilePhone').textContent =
+      currentPartner.phone || '—';
+
+    document.getElementById('profileDate').textContent =
+      formatDate(currentPartner.registrationDate);
+  }
+
+  function formatMoney(value) {
+    const number = Number(value || 0);
+
+    return new Intl.NumberFormat('ru-RU', {
+      maximumFractionDigits: 0
+    }).format(number) + ' ₽';
+  }
+
+  function formatDate(value) {
+    if (!value) {
+      return '—';
+    }
+
+    if (
+      typeof value === 'string' &&
+      /^\d{2}\.\d{2}\.\d{4}$/.test(value)
+    ) {
+      return value;
+    }
+
+    const date = new Date(value);
+
+    if (Number.isNaN(date.getTime())) {
+      return String(value);
+    }
+
+    return date.toLocaleDateString('ru-RU');
+  }
+
+  initializeApp();
+</script>
 
 </body>
 </html>
