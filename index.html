@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taffy Partners</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f8f5fb;
+      color: #241f2b;
+    }
+
+    .app {
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 28px 20px 40px;
+    }
+
+    .brand {
+      text-align: center;
+      margin-bottom: 38px;
+    }
+
+    .logo {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      color: #76558f;
+    }
+
+    .subtitle {
+      margin-top: 8px;
+      font-size: 14px;
+      color: #8e8793;
+    }
+
+    .welcome {
+      background: white;
+      border-radius: 24px;
+      padding: 25px 22px;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 30px rgba(71, 45, 87, 0.06);
+    }
+
+    .welcome h1 {
+      margin: 0 0 10px;
+      font-size: 24px;
+    }
+
+    .welcome p {
+      margin: 0;
+      color: #77717c;
+      line-height: 1.5;
+    }
+
+    .menu {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .menu-item {
+      background: white;
+      border-radius: 20px;
+      padding: 22px 16px;
+      min-height: 125px;
+      box-shadow: 0 8px 30px rgba(71, 45, 87, 0.05);
+    }
+
+    .icon {
+      font-size: 27px;
+      margin-bottom: 17px;
+    }
+
+    .menu-title {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .menu-description {
+      margin-top: 5px;
+      font-size: 12px;
+      color: #96909a;
+    }
+
+    .register {
+      width: 100%;
+      margin-top: 22px;
+      padding: 17px;
+      border: none;
+      border-radius: 17px;
+      background: #76558f;
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="app">
+
+    <div class="brand">
+      <div class="logo">TAFFY</div>
+      <div class="subtitle">Партнёрская программа</div>
+    </div>
+
+    <div class="welcome">
+      <h1>Добро пожаловать</h1>
+      <p>
+        Здесь вы сможете работать с продукцией Taffy,
+        оформлять заказы и следить за своими результатами.
+      </p>
+    </div>
+
+    <div class="menu">
+
+      <div class="menu-item">
+        <div class="icon">🛍</div>
+        <div class="menu-title">Каталог</div>
+        <div class="menu-description">Продукция Taffy</div>
+      </div>
+
+      <div class="menu-item">
+        <div class="icon">🛒</div>
+        <div class="menu-title">Корзина</div>
+        <div class="menu-description">Ваш заказ</div>
+      </div>
+
+      <div class="menu-item">
+        <div class="icon">📦</div>
+        <div class="menu-title">Мои заказы</div>
+        <div class="menu-description">История заказов</div>
+      </div>
+
+      <div class="menu-item">
+        <div class="icon">👤</div>
+        <div class="menu-title">Профиль</div>
+        <div class="menu-description">Данные партнёра</div>
+      </div>
+
+    </div>
+
+    <button class="register">
+      Зарегистрироваться
+    </button>
+
+  </div>
+
+</body>
+</html>
