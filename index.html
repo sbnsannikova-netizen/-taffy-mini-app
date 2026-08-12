@@ -1,1 +1,4148 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+>
+
+<title>ТЭФФИ — официальный дистрибьютор</title>
+
+<style>
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+  --purple: #76558f;
+  --purple-dark: #5f4477;
+  --purple-light: #eee6f3;
+  --purple-soft: #f5f0f8;
+  --bg: #f8f5fb;
+  --card: #ffffff;
+  --text: #241f2b;
+  --muted: #8f8894;
+  --border: #e8e1eb;
+  --danger: #9b3c3c;
+  --success: #39704a;
+  --warning: #8c6b2d;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.app {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px 18px 110px;
+}
+
+/* =========================
+   GENERAL
+========================= */
+
+.logo {
+  color: var(--purple);
+  font-size: 31px;
+  font-weight: 800;
+  letter-spacing: 5px;
+}
+
+.brand {
+  text-align: center;
+  margin: 12px 0 24px;
+}
+
+.subtitle {
+  color: var(--muted);
+  margin-top: 6px;
+  font-size: 13px;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 24px;
+  padding: 22px;
+  margin-bottom: 16px;
+  box-shadow: 0 8px 30px rgba(71,45,87,.055);
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 27px;
+  line-height: 1.15;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 22px;
+  margin-bottom: 14px;
+}
+
+h3 {
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+
+.muted {
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.primary-button,
+.secondary-button,
+.danger-button {
+  width: 100%;
+  border-radius: 17px;
+  padding: 15px 16px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.primary-button {
+  border: none;
+  background: var(--purple);
+  color: white;
+}
+
+.primary-button:disabled {
+  opacity: .55;
+  cursor: default;
+}
+
+.secondary-button {
+  border: 1px solid var(--border);
+  background: white;
+  color: var(--purple);
+}
+
+.danger-button {
+  border: 1px solid #eddcdc;
+  background: white;
+  color: var(--danger);
+}
+
+.button-gap {
+  margin-top: 10px;
+}
+
+.back-button {
+  border: none;
+  background: transparent;
+  color: var(--purple);
+  font-size: 15px;
+  font-weight: 700;
+  padding: 5px 0 18px;
+}
+
+.message {
+  border-radius: 15px;
+  padding: 13px 14px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.error {
+  background: #fff0f0;
+  color: var(--danger);
+}
+
+.success {
+  background: #eff8f1;
+  color: var(--success);
+}
+
+.warning {
+  background: #fff8e9;
+  color: var(--warning);
+}
+
+.loading {
+  text-align: center;
+  padding: 45px 15px;
+}
+
+.spinner {
+  width: 38px;
+  height: 38px;
+  border: 4px solid #e8e1ed;
+  border-top-color: var(--purple);
+  border-radius: 50%;
+  margin: 0 auto 18px;
+  animation: spin .8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* =========================
+   PUBLIC HOME
+========================= */
+
+.public-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin: 4px 0 22px;
+}
+
+.public-logo {
+  color: var(--purple);
+  font-size: 26px;
+  font-weight: 850;
+  letter-spacing: 4px;
+}
+
+.login-small {
+  border: 1px solid var(--purple);
+  color: var(--purple);
+  background: transparent;
+  border-radius: 999px;
+  padding: 10px 15px;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.hero {
+  background: linear-gradient(145deg,#ffffff 0%,#f2eaf6 100%);
+  border-radius: 30px;
+  padding: 30px 24px;
+  margin-bottom: 18px;
+}
+
+.hero-label {
+  color: var(--purple);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-bottom: 13px;
+}
+
+.hero h1 {
+  font-size: 31px;
+  line-height: 1.12;
+}
+
+.hero p {
+  color: #69616e;
+  line-height: 1.55;
+  margin-bottom: 22px;
+}
+
+.home-menu {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 11px;
+  margin-bottom: 18px;
+}
+
+.home-menu-button {
+  border: 0;
+  background: white;
+  border-radius: 22px;
+  padding: 19px 16px;
+  min-height: 125px;
+  text-align: left;
+  box-shadow: 0 8px 30px rgba(71,45,87,.05);
+}
+
+.home-menu-icon {
+  font-size: 25px;
+  margin-bottom: 15px;
+}
+
+.home-menu-title {
+  font-size: 16px;
+  font-weight: 750;
+}
+
+.home-menu-text {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 5px;
+  line-height: 1.4;
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about-image {
+  width: 100%;
+  display: block;
+  border-radius: 25px;
+  margin-bottom: 17px;
+  max-height: 440px;
+  object-fit: cover;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-top: 17px;
+}
+
+.feature {
+  background: var(--purple-soft);
+  border-radius: 17px;
+  padding: 16px;
+}
+
+.feature strong {
+  display: block;
+  color: var(--purple-dark);
+  margin-bottom: 4px;
+}
+
+.feature span {
+  color: #746d79;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.company-details {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #655e69;
+}
+
+.contact-links {
+  display: grid;
+  gap: 9px;
+  margin-top: 16px;
+}
+
+.contact-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  background: #f7f3fa;
+  border-radius: 16px;
+  padding: 14px 15px;
+  font-weight: 700;
+  color: var(--purple-dark);
+}
+
+/* =========================
+   MATERIALS
+========================= */
+
+.material {
+  display: block;
+  text-decoration: none;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 17px;
+  margin-bottom: 10px;
+}
+
+.material-title {
+  font-weight: 750;
+  margin-bottom: 4px;
+}
+
+.material-meta {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.whatsapp-group {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  background: var(--purple);
+  color: white;
+  border-radius: 17px;
+  padding: 16px;
+  font-weight: 750;
+  margin-top: 15px;
+}
+
+/* =========================
+   AUTH
+========================= */
+
+.auth-switch {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 18px;
+  background: #f3eef6;
+  padding: 5px;
+  border-radius: 15px;
+}
+
+.auth-tab {
+  border: none;
+  border-radius: 11px;
+  padding: 11px;
+  background: transparent;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.auth-tab.active {
+  background: white;
+  color: var(--purple-dark);
+  box-shadow: 0 4px 15px rgba(71,45,87,.06);
+}
+
+.field {
+  margin-bottom: 14px;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #625c67;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  border: 1px solid #ded8e2;
+  border-radius: 15px;
+  background: white;
+  padding: 14px 15px;
+  font-size: 16px;
+  outline: none;
+}
+
+.field textarea {
+  min-height: 90px;
+}
+
+.field input:focus,
+.field textarea:focus {
+  border-color: var(--purple);
+}
+
+.checkbox-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 17px 0;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.checkbox-row input {
+  margin-top: 3px;
+  width: 18px;
+  height: 18px;
+}
+
+.contract-link {
+  color: var(--purple);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* =========================
+   PARTNER HOME
+========================= */
+
+.menu {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 17px;
+}
+
+.menu-item {
+  border: 0;
+  text-align: left;
+  background: white;
+  min-height: 132px;
+  border-radius: 22px;
+  padding: 20px 17px;
+  color: var(--text);
+  box-shadow: 0 8px 30px rgba(71,45,87,.05);
+}
+
+.menu-icon {
+  font-size: 26px;
+  margin-bottom: 17px;
+}
+
+.menu-title {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.menu-description {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 5px;
+  line-height: 1.35;
+}
+
+/* =========================
+   CATALOG
+========================= */
+
+.category-scroll {
+  display: flex;
+  gap: 9px;
+  overflow-x: auto;
+  padding: 2px 0 14px;
+  scrollbar-width: none;
+}
+
+.category-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.category-button {
+  flex: 0 0 auto;
+  border: 1px solid var(--border);
+  background: white;
+  color: #625b66;
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.category-button.active {
+  background: var(--purple);
+  color: white;
+  border-color: var(--purple);
+}
+
+.product-card {
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  margin-bottom: 16px;
+  box-shadow: 0 8px 30px rgba(71,45,87,.055);
+}
+
+.product-image-wrap {
+  width: 100%;
+  aspect-ratio: 1.35/1;
+  background: #faf8fb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 12px;
+}
+
+.product-body {
+  padding: 19px;
+}
+
+.product-category {
+  color: var(--purple);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 7px;
+}
+
+.product-name {
+  font-size: 19px;
+  font-weight: 750;
+  margin-bottom: 6px;
+}
+
+.variant-row {
+  margin-top: 15px;
+}
+
+.variant-label {
+  font-size: 12px;
+  font-weight: 650;
+  color: #67606c;
+  margin-bottom: 8px;
+}
+
+.option-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.option-button {
+  border: 1px solid var(--border);
+  background: white;
+  color: #5e5763;
+  border-radius: 12px;
+  padding: 9px 11px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.option-button.selected {
+  border-color: var(--purple);
+  background: var(--purple-light);
+  color: var(--purple-dark);
+}
+
+.product-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-top: 18px;
+}
+
+.price {
+  font-size: 21px;
+  font-weight: 800;
+}
+
+.add-button {
+  border: none;
+  background: var(--purple);
+  color: white;
+  border-radius: 14px;
+  padding: 12px 15px;
+  font-weight: 700;
+}
+
+/* =========================
+   CART
+========================= */
+
+.cart-item {
+  background: white;
+  border-radius: 20px;
+  padding: 15px;
+  margin-bottom: 11px;
+}
+
+.cart-item-name {
+  font-weight: 750;
+  margin-bottom: 5px;
+}
+
+.cart-item-meta {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.cart-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 13px;
+}
+
+.quantity-control {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.quantity-button {
+  width: 31px;
+  height: 31px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: white;
+  color: var(--purple);
+  font-size: 18px;
+}
+
+.remove-button {
+  border: none;
+  background: transparent;
+  color: var(--danger);
+  padding: 8px 0 0;
+}
+
+.cart-total {
+  background: white;
+  border-radius: 22px;
+  padding: 20px;
+  margin-top: 17px;
+}
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.total-value {
+  font-size: 23px;
+  font-weight: 800;
+  color: var(--purple-dark);
+}
+
+/* =========================
+   PROFILE / ORDERS
+========================= */
+
+.order-card {
+  background: white;
+  border-radius: 22px;
+  padding: 18px;
+  margin-bottom: 13px;
+}
+
+.order-top,
+.order-summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.order-top {
+  margin-bottom: 12px;
+}
+
+.order-summary {
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+.order-id {
+  font-weight: 750;
+}
+
+.order-date {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.status-badge {
+  background: #f4eef7;
+  color: var(--purple-dark);
+  border-radius: 999px;
+  padding: 6px 9px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.order-line {
+  padding: 7px 0;
+  border-bottom: 1px solid #f0ebf2;
+  font-size: 13px;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.avatar {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: var(--purple-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--purple);
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.profile-name {
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.partner-id {
+  color: var(--muted);
+  margin-top: 4px;
+  font-size: 13px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 19px;
+}
+
+.stat {
+  background: #f7f3fa;
+  border-radius: 16px;
+  padding: 14px 8px;
+  text-align: center;
+}
+
+.stat-value {
+  color: var(--purple-dark);
+  font-size: 17px;
+  font-weight: 750;
+}
+
+.stat-label {
+  color: var(--muted);
+  font-size: 11px;
+  margin-top: 5px;
+}
+
+.profile-row {
+  padding: 13px 0;
+  border-bottom: 1px solid #eee9f0;
+}
+
+.profile-label {
+  color: var(--muted);
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.empty-state {
+  background: white;
+  border-radius: 22px;
+  padding: 40px 20px;
+  text-align: center;
+  color: var(--muted);
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(30,23,34,.52);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal {
+  width: 100%;
+  max-width: 600px;
+  max-height: 92vh;
+  overflow-y: auto;
+  background: white;
+  border-radius: 28px 28px 0 0;
+  padding: 22px 19px 35px;
+}
+
+.modal-close {
+  float: right;
+  border: none;
+  background: #f3eef6;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  color: var(--purple-dark);
+  font-size: 18px;
+}
+
+.contract-text {
+  font-size: 13px;
+  line-height: 1.55;
+  color: #4d4751;
+  white-space: pre-line;
+}
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 25px;
+  transform: translateX(-50%);
+  background: #2e2931;
+  color: white;
+  border-radius: 14px;
+  padding: 11px 15px;
+  font-size: 13px;
+  z-index: 150;
+  opacity: 0;
+  pointer-events: none;
+  transition: .2s;
+  white-space: nowrap;
+}
+
+.toast.show {
+  opacity: 1;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<!-- PUBLIC HOME -->
+
+<div id="publicHome">
+
+  <div class="public-header">
+    <div class="public-logo">ТЭФФИ</div>
+
+    <button
+      class="login-small"
+      onclick="openAuth()"
+    >
+      Войти
+    </button>
+  </div>
+
+
+  <section class="hero">
+
+    <div class="hero-label">TAFFY</div>
+
+    <h1>
+      Товары для дома, детей и всей семьи
+    </h1>
+
+    <p>
+      Официальная продукция турецкого бренда Taffy.
+    </p>
+
+    <button
+      class="primary-button"
+      onclick="openPublicCatalog()"
+    >
+      Смотреть каталог
+    </button>
+
+  </section>
+
+
+  <div class="home-menu">
+
+    <button
+      class="home-menu-button"
+      onclick="openAbout()"
+    >
+      <div class="home-menu-icon">✦</div>
+      <div class="home-menu-title">О ТЭФФИ</div>
+      <div class="home-menu-text">
+        Бренд и качество продукции
+      </div>
+    </button>
+
+
+    <button
+      class="home-menu-button"
+      onclick="openPublicCatalog()"
+    >
+      <div class="home-menu-icon">🛍</div>
+      <div class="home-menu-title">Каталог</div>
+      <div class="home-menu-text">
+        Ассортимент и цены
+      </div>
+    </button>
+
+
+    <button
+      class="home-menu-button"
+      onclick="openPartners()"
+    >
+      <div class="home-menu-icon">♡</div>
+      <div class="home-menu-title">Партнёрам</div>
+      <div class="home-menu-text">
+        Партнёрская программа
+      </div>
+    </button>
+
+
+    <button
+      class="home-menu-button"
+      onclick="openAuth()"
+    >
+      <div class="home-menu-icon">👤</div>
+      <div class="home-menu-title">Личный кабинет</div>
+      <div class="home-menu-text">
+        Вход и регистрация
+      </div>
+    </button>
+
+  </div>
+
+
+  <div class="card">
+
+    <h2>О «ТЭФФИ»</h2>
+
+    <p class="muted">
+      Мы являемся официальными дистрибьюторами турецкого
+      бренда товаров для дома, детей и всей семьи.
+    </p>
+
+    <p class="muted">
+      Мы предлагаем простой формат сотрудничества:
+      вы рассказываете о продукции Тэффи,
+      а мы обеспечиваем вас товарами,
+      материалами и поддержкой.
+    </p>
+
+  </div>
+
+</div>
+
+
+<!-- ABOUT -->
+
+<div id="aboutScreen" class="hidden">
+
+  <button
+    class="back-button"
+    onclick="openPublicHome()"
+  >
+    ← Главная
+  </button>
+
+  <h1>О «ТЭФФИ»</h1>
+
+  <img
+    src="images/about-taffy.JPG"
+    alt="Taffy"
+    class="about-image"
+  >
+
+  <div class="card">
+
+    <p>
+      Мы являемся официальными дистрибьюторами
+      турецкого бренда товаров для дома,
+      детей и всей семьи.
+    </p>
+
+    <p class="muted">
+      Мы предлагаем простой формат сотрудничества:
+      вы рассказываете о продукции Тэффи,
+      а мы обеспечиваем вас товарами,
+      материалами и поддержкой.
+    </p>
+
+    <div class="feature-grid">
+
+      <div class="feature">
+        <strong>Произведено в Турции</strong>
+        <span>
+          Продукция производится на современных
+          производственных площадках.
+        </span>
+      </div>
+
+      <div class="feature">
+        <strong>Сертифицированная продукция</strong>
+        <span>
+          Продукция проходит необходимый контроль качества
+          и имеет соответствующую сертификацию.
+        </span>
+      </div>
+
+      <div class="feature">
+        <strong>GMP</strong>
+        <span>
+          Производство соответствует стандартам
+          надлежащей производственной практики.
+        </span>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="card">
+
+    <h2>Связаться с нами</h2>
+
+    <div class="contact-links">
+
+      <a
+        class="contact-link"
+        href="https://t.me/taffy_dag"
+        target="_blank"
+        rel="noopener"
+      >
+        <span>Telegram</span>
+        <span>→</span>
+      </a>
+
+      <a
+        class="contact-link"
+        href="https://wa.me/79634035393"
+        target="_blank"
+        rel="noopener"
+      >
+        <span>WhatsApp</span>
+        <span>→</span>
+      </a>
+
+      <a
+        class="contact-link"
+        href="https://www.instagram.com/taffy.dag?igsh=MWMxank0MDAzajc4Zg%3D%3D&utm_source=qr"
+        target="_blank"
+        rel="noopener"
+      >
+        <span>Instagram</span>
+        <span>→</span>
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <div class="card">
+
+    <h2>Реквизиты</h2>
+
+    <div class="company-details">
+      <strong>ИП Алиев Камран Рафик Оглы</strong><br>
+      ИНН: 057102382152<br>
+      ОГРНИП: 319057100017978
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- PUBLIC PARTNERS -->
+
+<div id="partnersScreen" class="hidden">
+
+  <button
+    class="back-button"
+    onclick="openPublicHome()"
+  >
+    ← Главная
+  </button>
+
+  <h1>Партнёрам</h1>
+
+  <div class="card">
+
+    <h2>Партнёрская программа</h2>
+
+    <p class="muted">
+      Рекомендуйте продукцию Taffy,
+      помогайте клиентам оформлять заказы
+      и получайте агентское вознаграждение.
+    </p>
+
+    <p>
+      <strong>Вознаграждение — 15%</strong>
+      от стоимости оплаченных и исполненных заказов.
+    </p>
+
+    <button
+      class="primary-button"
+      onclick="openAuth('register')"
+    >
+      Стать партнёром
+    </button>
+
+  </div>
+
+
+  <div class="card">
+
+    <h2>О партнёрской программе</h2>
+
+    <p class="muted">
+      До регистрации вы можете ознакомиться
+      с условиями партнёрской программы.
+      Рабочие материалы доступны партнёрам
+      после входа в личный кабинет.
+    </p>
+
+    <a
+      class="material"
+      href="materials/partners.pdf"
+      target="_blank"
+    >
+      <div class="material-title">
+        Партнёрская программа
+      </div>
+
+      <div class="material-meta">
+        PDF · открыть
+      </div>
+    </a>
+
+
+    <a
+      class="whatsapp-group"
+      href="https://chat.whatsapp.com/DZ8WrEBOvNuBGpuldUc0SD?s=cl&p=i&mlu=0"
+      target="_blank"
+      rel="noopener"
+    >
+      Вступить в WhatsApp-группу партнёров
+    </a>
+
+  </div>
+
+</div>
+
+
+<!-- CATALOG -->
+
+<div id="catalogScreen" class="hidden">
+
+  <button
+    class="back-button"
+    onclick="catalogBack()"
+  >
+    ← Назад
+  </button>
+
+  <h1>Каталог</h1>
+
+  <p class="muted">
+    Выберите товар, размер и упаковку.
+  </p>
+
+  <div class="message warning">
+    Минимальная сумма заказа — 700 ₽.<br>
+    Срок доставки — до 3 дней.
+  </div>
+
+  <div
+    id="categoryButtons"
+    class="category-scroll"
+  ></div>
+
+  <div
+    id="catalogLoading"
+    class="loading hidden"
+  >
+    <div class="spinner"></div>
+
+    <div class="muted">
+      Загружаем товары...
+    </div>
+  </div>
+
+  <div id="productsContainer"></div>
+
+</div>
+
+
+<!-- AUTH -->
+
+<div id="authScreen" class="hidden">
+
+  <button
+    class="back-button"
+    onclick="openPublicHome()"
+  >
+    ← На сайт
+  </button>
+
+  <div class="brand">
+    <div class="logo">ТЭФФИ</div>
+    <div class="subtitle">
+      Партнёрская программа
+    </div>
+  </div>
+
+  <div class="card">
+
+    <div class="auth-switch">
+
+      <button
+        id="loginTab"
+        class="auth-tab active"
+        onclick="selectAuthTab('login')"
+      >
+        Войти
+      </button>
+
+      <button
+        id="registerTab"
+        class="auth-tab"
+        onclick="selectAuthTab('register')"
+      >
+        Регистрация
+      </button>
+
+    </div>
+
+
+    <div id="loginForm">
+
+      <h2>Вход</h2>
+
+      <div id="loginMessage"></div>
+
+      <div class="field">
+        <label>Телефон</label>
+
+        <input
+          id="loginPhone"
+          class="phone-input"
+          type="tel"
+          inputmode="numeric"
+          placeholder="+7 (___) ___-__-__"
+        >
+      </div>
+
+      <div class="field">
+        <label>Пароль</label>
+
+        <input
+          id="loginPassword"
+          type="password"
+          placeholder="Введите пароль"
+        >
+      </div>
+
+      <button
+        id="loginButton"
+        class="primary-button"
+        onclick="login()"
+      >
+        Войти
+      </button>
+
+    </div>
+
+
+    <div id="registerForm" class="hidden">
+
+      <h2>Регистрация партнёра</h2>
+
+      <div id="registerMessage"></div>
+
+      <div class="field">
+        <label>Фамилия</label>
+        <input id="registerLastName">
+      </div>
+
+      <div class="field">
+        <label>Имя</label>
+        <input id="registerFirstName">
+      </div>
+
+      <div class="field">
+        <label>Отчество</label>
+        <input id="registerMiddleName">
+      </div>
+
+      <div class="field">
+        <label>Телефон</label>
+
+        <input
+          id="registerPhone"
+          class="phone-input"
+          type="tel"
+          inputmode="numeric"
+          placeholder="+7 (___) ___-__-__"
+        >
+      </div>
+
+      <div class="field">
+        <label>Дата рождения</label>
+        <input id="registerBirthDate" type="date">
+      </div>
+
+      <div class="field">
+        <label>Email</label>
+        <input id="registerEmail" type="email">
+      </div>
+
+      <div class="field">
+        <label>Пароль</label>
+
+        <input
+          id="registerPassword"
+          type="password"
+          placeholder="Минимум 6 символов"
+        >
+      </div>
+
+      <div class="checkbox-row">
+
+        <input
+          id="contractAccepted"
+          type="checkbox"
+        >
+
+        <div>
+          Я ознакомился(ась) и принимаю условия
+          <span
+            class="contract-link"
+            onclick="openContract()"
+          >
+            агентского договора
+          </span>.
+        </div>
+
+      </div>
+
+      <button
+        id="registerButton"
+        class="primary-button"
+        onclick="register()"
+      >
+        Зарегистрироваться
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- PARTNER HOME -->
+
+<div id="mainScreen" class="hidden">
+
+  <div class="brand">
+    <div class="logo">ТЭФФИ</div>
+    <div class="subtitle">
+      Личный кабинет партнёра
+    </div>
+  </div>
+
+  <div class="card">
+
+    <h1 id="welcomeName">
+      Добро пожаловать
+    </h1>
+
+    <p class="muted">
+      Каталог, заказы, материалы и результаты вашей работы —
+      в одном месте.
+    </p>
+
+  </div>
+
+
+  <div class="menu">
+
+    <button
+      class="menu-item"
+      onclick="openPartnerCatalog()"
+    >
+      <div class="menu-icon">🛍</div>
+      <div class="menu-title">Каталог</div>
+      <div class="menu-description">
+        Оформление заказов
+      </div>
+    </button>
+
+
+    <button
+      class="menu-item"
+      onclick="openCart()"
+    >
+      <div class="menu-icon">🛒</div>
+      <div class="menu-title">Корзина</div>
+
+      <div
+        id="homeCartDescription"
+        class="menu-description"
+      >
+        Ваш заказ
+      </div>
+    </button>
+
+
+    <button
+      class="menu-item"
+      onclick="openOrders()"
+    >
+      <div class="menu-icon">📦</div>
+      <div class="menu-title">Мои заказы</div>
+      <div class="menu-description">
+        Заказы и статусы
+      </div>
+    </button>
+
+
+    <button
+      class="menu-item"
+      onclick="openProfile()"
+    >
+      <div class="menu-icon">👤</div>
+      <div class="menu-title">Профиль</div>
+      <div class="menu-description">
+        Продажи и выплаты
+      </div>
+    </button>
+
+
+    <button
+      class="menu-item"
+      onclick="openPartnerMaterials()"
+    >
+      <div class="menu-icon">📄</div>
+      <div class="menu-title">Материалы</div>
+      <div class="menu-description">
+        Всё для работы и продвижения
+      </div>
+    </button>
+
+  </div>
+
+
+  <button
+    class="secondary-button button-gap"
+    onclick="openPublicHome()"
+    style="margin-top:18px"
+  >
+    На главную сайта
+  </button>
+
+</div>
+
+
+<!-- PARTNER MATERIALS -->
+
+<div id="partnerMaterialsScreen" class="hidden">
+
+  <button
+    class="back-button"
+    onclick="openPartnerHome()"
+  >
+    ← Главная
+  </button>
+
+  <h1>Материалы партнёра</h1>
+
+  <p class="muted">
+    Рабочие материалы для партнёров ТЭФФИ.
+  </p>
+
+  <div class="card">
+
+    <a
+      class="material"
+      href="materials/katalog.pdf"
+      target="_blank"
+    >
+      <div class="material-title">
+        Каталог продукции
+      </div>
+      <div class="material-meta">
+        PDF · открыть
+      </div>
+    </a>
+
+
+    <a
+      class="material"
+      href="materials/gid.pdf"
+      target="_blank"
+    >
+      <div class="material-title">
+        Продвижение
+      </div>
+      <div class="material-meta">
+        PDF · открыть
+      </div>
+    </a>
+
+
+    <a
+      class="material"
+      href="materials/scheme.pdf"
+      target="_blank"
+    >
+      <div class="material-title">
+        Схема продаж
+      </div>
+      <div class="material-meta">
+        PDF · открыть
+      </div>
+    </a>
+
+
+    <a
+      class="material"
+      href="materials/partners.pdf"
+      target="_blank"
+    >
+      <div class="material-title">
+        Партнёрская программа
+      </div>
+      <div class="material-meta">
+        PDF · открыть
+      </div>
+    </a>
+
+
+    <a
+      class="whatsapp-group"
+      href="https://chat.whatsapp.com/DZ8WrEBOvNuBGpuldUc0SD?s=cl&p=i&mlu=0"
+      target="_blank"
+      rel="noopener"
+    >
+      Вступить в WhatsApp-группу партнёров
+    </a>
+
+  </div>
+
+</div>
+
+
+<!-- CART -->
+
+<div id="cartScreen" class="hidden">
+
+  <button
+    class="back-button"
+    onclick="openPartnerHome()"
+  >
+    ← Главная
+  </button>
+
+  <h1>Корзина</h1>
+
+  <div class="message warning">
+    Минимальная сумма заказа — 700 ₽.<br>
+    Срок доставки — до 3 дней.
+  </div>
+
+  <div id="cartContainer"></div>
+
+  <div
+    id="cartTotalBlock"
+    class="cart-total hidden"
+  >
+
+    <div class="total-row">
+      <span class="muted">Итого</span>
+      <span
+        id="cartTotal"
+        class="total-value"
+      >
+        0 ₽
+      </span>
+    </div>
+
+    <button
+      class="primary-button"
+      style="margin-top:18px"
+      onclick="startCheckout()"
+    >
+      Оформить заказ
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- CHECKOUT -->
+
+<div id="checkoutScreen" class="hidden">
+
+  <button
+    class="back-button"
+    onclick="openCart()"
+  >
+    ← Корзина
+  </button>
+
+  <h1>Оформление заказа</h1>
+
+  <div class="card">
+
+    <div id="checkoutMessage"></div>
+
+    <div class="field">
+      <label>Имя получателя</label>
+      <input id="checkoutClient">
+    </div>
+
+    <div class="field">
+      <label>Телефон</label>
+
+      <input
+        id="checkoutPhone"
+        class="phone-input"
+        type="tel"
+        inputmode="numeric"
+        placeholder="+7 (___) ___-__-__"
+      >
+    </div>
+
+    <div class="field">
+      <label>Город</label>
+      <input id="checkoutCity">
+    </div>
+
+    <div class="field">
+      <label>Адрес доставки</label>
+      <input id="checkoutAddress">
+    </div>
+
+    <div class="field">
+      <label>Комментарий</label>
+
+      <textarea
+        id="checkoutComment"
+        placeholder="Комментарий для доставки, если нужен"
+      ></textarea>
+    </div>
+
+    <div class="message warning">
+      Минимальная сумма заказа — 700 ₽.<br>
+      Доставка осуществляется в срок до 3 дней.
+    </div>
+
+    <button
+      id="createOrderButton"
+      class="primary-button"
+      onclick="createOrder()"
+    >
+      Подтвердить заказ
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- ORDERS -->
+
+<div id="ordersScreen" class="hidden">
+
+  <button
+    class="back-button"
+    onclick="openPartnerHome()"
+  >
+    ← Главная
+  </button>
+
+  <h1>Мои заказы</h1>
+
+  <div
+    id="ordersLoading"
+    class="loading hidden"
+  >
+    <div class="spinner"></div>
+  </div>
+
+  <div id="ordersContainer"></div>
+
+</div>
+
+
+<!-- PROFILE -->
+
+<div id="profileScreen" class="hidden">
+
+  <button
+    class="back-button"
+    onclick="openPartnerHome()"
+  >
+    ← Главная
+  </button>
+
+  <h1>Профиль</h1>
+
+  <div class="card">
+
+    <div class="profile-header">
+
+      <div
+        id="profileAvatar"
+        class="avatar"
+      >
+        T
+      </div>
+
+      <div>
+        <div
+          id="profileName"
+          class="profile-name"
+        ></div>
+
+        <div
+          id="profilePartnerId"
+          class="partner-id"
+        ></div>
+      </div>
+
+    </div>
+
+
+    <div class="stats">
+
+      <div class="stat">
+        <div
+          id="salesValue"
+          class="stat-value"
+        >
+          0 ₽
+        </div>
+        <div class="stat-label">
+          Продажи
+        </div>
+      </div>
+
+      <div class="stat">
+        <div
+          id="incomeValue"
+          class="stat-value"
+        >
+          0 ₽
+        </div>
+        <div class="stat-label">
+          Начислено
+        </div>
+      </div>
+
+      <div class="stat">
+        <div
+          id="toPayoutValue"
+          class="stat-value"
+        >
+          0 ₽
+        </div>
+        <div class="stat-label">
+          К выплате
+        </div>
+      </div>
+
+      <div class="stat">
+        <div
+          id="paidValue"
+          class="stat-value"
+        >
+          0 ₽
+        </div>
+        <div class="stat-label">
+          Выплачено
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="profile-row">
+      <div class="profile-label">Фамилия</div>
+      <div id="profileLastName"></div>
+    </div>
+
+    <div class="profile-row">
+      <div class="profile-label">Имя</div>
+      <div id="profileFirstName"></div>
+    </div>
+
+    <div class="profile-row">
+      <div class="profile-label">Отчество</div>
+      <div id="profileMiddleName"></div>
+    </div>
+
+    <div class="profile-row">
+      <div class="profile-label">Телефон</div>
+      <div id="profilePhone"></div>
+    </div>
+
+    <div class="profile-row">
+      <div class="profile-label">Email</div>
+      <div id="profileEmail"></div>
+    </div>
+
+  </div>
+
+
+  <div class="card">
+
+    <h2>Выплаты</h2>
+
+    <p class="muted">
+      Агентское вознаграждение рассчитывается
+      по исполненным заказам.
+    </p>
+
+    <p class="muted">
+      Расчётные периоды:
+      с 1 по 15 число и с 16 числа
+      по последний день месяца.
+    </p>
+
+    <button
+      class="secondary-button"
+      onclick="openPayoutHistory()"
+    >
+      История выплат
+    </button>
+
+  </div>
+
+
+  <button
+    class="danger-button"
+    onclick="logout()"
+  >
+    Выйти из аккаунта
+  </button>
+
+</div>
+
+
+<!-- PAYOUT HISTORY -->
+
+<div id="payoutHistoryScreen" class="hidden">
+
+  <button
+    class="back-button"
+    onclick="openProfile()"
+  >
+    ← Профиль
+  </button>
+
+  <h1>История выплат</h1>
+
+  <div id="payoutHistoryContainer"></div>
+
+</div>
+
+</div>
+
+
+<!-- CONTRACT -->
+
+<div
+  id="contractModal"
+  class="modal-overlay hidden"
+>
+
+<div class="modal">
+
+<button
+  class="modal-close"
+  onclick="closeContract()"
+>
+  ×
+</button>
+
+<h2>Агентский договор-оферта</h2>
+
+<div class="contract-text">
+АГЕНТСКИЙ ДОГОВОР-ОФЕРТА
+о привлечении покупателей и содействии реализации продукции Taffy
+
+1. ОБЩИЕ ПОЛОЖЕНИЯ
+
+1.1. Индивидуальный предприниматель Алиев Камран Рафик Оглы, ИНН 057102382152, ОГРНИП 319057100017978, именуемый далее «Принципал», предлагает физическим лицам заключить настоящий агентский договор.
+
+1.2. Физическое лицо, прошедшее регистрацию в Taffy Partners и принявшее настоящую оферту, именуется «Агент».
+
+1.3. Настоящий договор является гражданско-правовым и не создаёт трудовых отношений между Принципалом и Агентом.
+
+2. ПРЕДМЕТ ДОГОВОРА
+
+2.1. Агент обязуется за вознаграждение совершать действия, направленные на привлечение покупателей продукции Taffy, информирование потенциальных покупателей об ассортименте и содействие оформлению заказов.
+
+2.2. Агент не приобретает продукцию у Принципала для последующей перепродажи.
+
+2.3. Продавцом продукции является Принципал.
+
+2.4. Доставку заказов покупателям осуществляет Принципал самостоятельно либо с привлечением третьих лиц.
+
+3. РЕГИСТРАЦИЯ И УЧЁТ ПРОДАЖ
+
+3.1. Агент проходит регистрацию в Taffy Partners и предоставляет достоверные сведения.
+
+3.2. После регистрации Агенту присваивается уникальный Partner ID.
+
+3.3. Partner ID используется для учёта заказов, продаж и расчёта агентского вознаграждения.
+
+3.4. Заказ закрепляется за Агентом на основании данных информационной системы Taffy Partners.
+
+4. ОФОРМЛЕНИЕ И ИСПОЛНЕНИЕ ЗАКАЗОВ
+
+4.1. Агент содействует покупателю в выборе продукции и оформлении заказа.
+
+4.2. Заказ оформляется в информационной системе Taffy Partners.
+
+4.3. Оплата товара производится в пользу Принципала способом, предусмотренным системой.
+
+4.4. Исполнение, комплектация и доставка заказа осуществляются Принципалом.
+
+5. АГЕНТСКОЕ ВОЗНАГРАЖДЕНИЕ
+
+5.1. Размер агентского вознаграждения составляет 15% от стоимости товаров по заказам, закреплённым за Агентом и учитываемым в соответствии с настоящим договором.
+
+5.2. В базу для расчёта вознаграждения не включается стоимость доставки и иные платежи, не являющиеся стоимостью реализованного товара, если Принципалом прямо не установлено иное.
+
+5.3. Вознаграждение начисляется после подтверждения исполнения заказа и его доставки покупателю.
+
+5.4. При отмене или возврате заказа до начисления вознаграждение по такому заказу не начисляется.
+
+5.5. Расчётные периоды устанавливаются с 1 по 15 число месяца и с 16 числа по последний календарный день месяца.
+
+5.6. По окончании расчётного периода Принципал определяет сумму причитающегося Агенту вознаграждения.
+
+5.7. Вознаграждение в размере 15% является начисленной суммой.
+
+5.8. Принципал исполняет обязанности, возложенные на него законодательством Российской Федерации при осуществлении выплат физическим лицам.
+
+5.9. Сумма, фактически перечисляемая Агенту, определяется как начисленное вознаграждение без удержания НДФЛ и иных налогов на стороне Агента.
+
+6. ОТЧЁТНОСТЬ И УЧЁТ
+
+6.1. Данные Taffy Partners и учётной системы Принципала используются для определения заказов и вознаграждения Агента.
+
+6.2. Агент вправе ознакомиться с информацией о своих заказах, продажах, начислениях и выплатах в личном кабинете.
+
+7. ПРАВА И ОБЯЗАННОСТИ АГЕНТА
+
+7.1. Агент вправе использовать предоставленные Принципалом материалы для исполнения настоящего договора.
+
+7.2. Агент обязан предоставлять покупателям достоверную информацию о продукции.
+
+7.3. Агент не вправе предоставлять покупателям заведомо недостоверную информацию, принимать на себя обязательства от имени Принципала за пределами предоставленных полномочий или использовать бренд Taffy способом, не согласованным с Принципалом.
+
+8. ПРАВА И ОБЯЗАННОСТИ ПРИНЦИПАЛА
+
+8.1. Принципал обеспечивает учёт заказов и расчёт агентского вознаграждения.
+
+8.2. Принципал вправе изменять ассортимент, цены, наличие продукции и условия доставки.
+
+8.3. Принципал самостоятельно исполняет обязанности продавца перед покупателем.
+
+9. ВОЗВРАТЫ И ОТМЕНЫ
+
+9.1. При отмене заказа до его исполнения агентское вознаграждение не начисляется.
+
+9.2. При возврате товара соответствующее вознаграждение может быть скорректировано в соответствии с настоящим договором и законодательством.
+
+10. ПЕРСОНАЛЬНЫЕ ДАННЫЕ
+
+10.1. Агент предоставляет Принципалу персональные данные, необходимые для регистрации, исполнения договора, учёта и осуществления выплат.
+
+10.2. Персональные данные используются исключительно в законных целях, связанных с исполнением настоящего договора и деятельностью партнёрской программы.
+
+10.3. При передаче данных покупателя Агент обязан использовать их исключительно для оформления соответствующего заказа.
+
+11. ИНТЕЛЛЕКТУАЛЬНАЯ СОБСТВЕННОСТЬ
+
+11.1. Товарные знаки, логотипы, фотографии, каталоги и иные материалы принадлежат их правообладателям.
+
+11.2. Агент получает ограниченное право использовать предоставленные материалы исключительно в целях исполнения настоящего договора.
+
+12. ОТВЕТСТВЕННОСТЬ
+
+12.1. Стороны несут ответственность за нарушение обязательств в соответствии с законодательством Российской Федерации.
+
+12.2. Агент отвечает за действия, совершённые им за пределами предоставленных полномочий.
+
+13. ОТСУТСТВИЕ ТРУДОВЫХ ОТНОШЕНИЙ
+
+13.1. Агент не является работником Принципала.
+
+13.2. Агент самостоятельно определяет время и способы своей деятельности.
+
+13.3. Вознаграждение зависит от результата деятельности Агента и не является заработной платой.
+
+14. СРОК ДЕЙСТВИЯ
+
+14.1. Договор заключается на неопределённый срок и вступает в силу с момента его акцепта Агентом.
+
+14.2. Каждая Сторона вправе прекратить отношения в порядке, предусмотренном настоящим договором и законодательством Российской Федерации.
+
+15. ЭЛЕКТРОННЫЙ АКЦЕПТ
+
+15.1. Акцептом настоящей оферты является установка Агентом отметки о принятии договора и нажатие кнопки регистрации в Taffy Partners.
+
+15.2. Принципал фиксирует Partner ID, дату акцепта и версию договора.
+
+15.3. Электронный акцепт означает полное и безоговорочное принятие Агентом условий настоящего договора.
+
+16. РАЗРЕШЕНИЕ СПОРОВ
+
+16.1. Споры разрешаются путём переговоров, а при недостижении соглашения — в порядке, установленном законодательством Российской Федерации.
+
+17. РЕКВИЗИТЫ ПРИНЦИПАЛА
+
+ИП Алиев Камран Рафик Оглы
+ИНН: 057102382152
+ОГРНИП: 319057100017978
+</div>
+
+<button
+  class="primary-button"
+  style="margin-top:20px"
+  onclick="acceptContract()"
+>
+  Принимаю условия
+</button>
+
+</div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+
+<script>
+
+/* =========================
+   SETTINGS
+========================= */
+
+const API_URL =
+  'https://script.google.com/macros/s/AKfycbyElK6eTJQqoZlcAwYbhCJtMLxNJ8pAV8JcZWhL-UWGEMGPqomrAWPIukl_nTSEp-Vn/exec';
+
+const MIN_ORDER = 700;
+
+let token =
+  localStorage.getItem('taffy_token') || '';
+
+let currentPartner = null;
+let allProducts = [];
+let currentCategory = 'Все';
+let catalogMode = 'public';
+
+let cart = [];
+
+try {
+  cart = JSON.parse(
+    localStorage.getItem('taffy_cart') || '[]'
+  );
+} catch {
+  cart = [];
+}
+
+const screenIds = [
+  'publicHome',
+  'aboutScreen',
+  'partnersScreen',
+  'catalogScreen',
+  'authScreen',
+  'mainScreen',
+  'partnerMaterialsScreen',
+  'cartScreen',
+  'checkoutScreen',
+  'ordersScreen',
+  'profileScreen',
+  'payoutHistoryScreen'
+];
+
+
+/* =========================
+   API
+========================= */
+
+async function apiRequest(payload) {
+
+  const response =
+    await fetch(API_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'text/plain;charset=utf-8'
+      },
+      body: JSON.stringify(payload)
+    });
+
+  if (!response.ok) {
+    throw new Error(
+      'Ошибка соединения с сервером'
+    );
+  }
+
+  return response.json();
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+function showScreen(id) {
+
+  screenIds.forEach(screenId => {
+
+    const element =
+      document.getElementById(screenId);
+
+    if (element) {
+      element.classList.add('hidden');
+    }
+
+  });
+
+  document
+    .getElementById(id)
+    .classList
+    .remove('hidden');
+
+  window.scrollTo(0,0);
+}
+
+
+function openPublicHome() {
+  showScreen('publicHome');
+}
+
+
+function openAbout() {
+  showScreen('aboutScreen');
+}
+
+
+function openPartners() {
+  showScreen('partnersScreen');
+}
+
+
+function openAuth(tab = 'login') {
+  showScreen('authScreen');
+  selectAuthTab(tab);
+}
+
+
+function openPartnerHome() {
+
+  if (!currentPartner) {
+    openAuth();
+    return;
+  }
+
+  showScreen('mainScreen');
+
+  document
+    .getElementById('welcomeName')
+    .textContent =
+      currentPartner.firstName
+        ? `Здравствуйте, ${currentPartner.firstName}`
+        : 'Добро пожаловать';
+
+  updateCartDescription();
+}
+
+
+function openPartnerMaterials() {
+
+  if (!currentPartner) {
+    openAuth('login');
+    return;
+  }
+
+  showScreen('partnerMaterialsScreen');
+}
+
+
+/* =========================
+   AUTH TABS
+========================= */
+
+function selectAuthTab(type) {
+
+  const login =
+    type === 'login';
+
+  document
+    .getElementById('loginTab')
+    .classList
+    .toggle('active',login);
+
+  document
+    .getElementById('registerTab')
+    .classList
+    .toggle('active',!login);
+
+  document
+    .getElementById('loginForm')
+    .classList
+    .toggle('hidden',!login);
+
+  document
+    .getElementById('registerForm')
+    .classList
+    .toggle('hidden',login);
+}
+
+
+/* =========================
+   PHONE MASK
+========================= */
+
+function formatPhone(value) {
+
+  let digits =
+    String(value || '')
+      .replace(/\D/g,'');
+
+  if (!digits) {
+    return '';
+  }
+
+  if (digits[0] === '8') {
+    digits =
+      '7' + digits.slice(1);
+  }
+
+  if (digits[0] !== '7') {
+    digits =
+      '7' + digits;
+  }
+
+  digits =
+    digits.slice(0,11);
+
+  const body =
+    digits.slice(1);
+
+  let result = '+7';
+
+  if (body.length > 0) {
+    result += ' (' + body.slice(0,3);
+  }
+
+  if (body.length >= 3) {
+    result += ')';
+  }
+
+  if (body.length > 3) {
+    result += ' ' + body.slice(3,6);
+  }
+
+  if (body.length > 6) {
+    result += '-' + body.slice(6,8);
+  }
+
+  if (body.length > 8) {
+    result += '-' + body.slice(8,10);
+  }
+
+  return result;
+}
+
+
+document
+  .querySelectorAll('.phone-input')
+  .forEach(input => {
+
+    input.addEventListener(
+      'input',
+      function() {
+        this.value =
+          formatPhone(this.value);
+      }
+    );
+
+    input.addEventListener(
+      'focus',
+      function() {
+
+        if (!this.value) {
+          this.value = '+7';
+        }
+
+      }
+    );
+
+  });
+
+
+/* =========================
+   LOGIN
+========================= */
+
+async function login() {
+
+  const phone =
+    valueOf('loginPhone');
+
+  const password =
+    document
+      .getElementById('loginPassword')
+      .value;
+
+  const message =
+    document
+      .getElementById('loginMessage');
+
+  message.innerHTML = '';
+
+  if (!phone || !password) {
+
+    showMessage(
+      message,
+      'Введите телефон и пароль',
+      'error'
+    );
+
+    return;
+  }
+
+  const button =
+    document.getElementById('loginButton');
+
+  button.disabled = true;
+  button.textContent = 'Входим...';
+
+  try {
+
+    const result =
+      await apiRequest({
+        action: 'login',
+        phone,
+        password
+      });
+
+    if (!result.success) {
+      throw new Error(
+        result.message || 'Ошибка входа'
+      );
+    }
+
+    token = result.token;
+
+    localStorage.setItem(
+      'taffy_token',
+      token
+    );
+
+    currentPartner =
+      result.partner;
+
+    if (!currentPartner) {
+
+      const profile =
+        await apiRequest({
+          action: 'getProfile',
+          token
+        });
+
+      currentPartner =
+        profile.partner;
+    }
+
+    openPartnerHome();
+
+  } catch(error) {
+
+    showMessage(
+      message,
+      error.message,
+      'error'
+    );
+
+  } finally {
+
+    button.disabled = false;
+    button.textContent = 'Войти';
+  }
+}
+
+
+/* =========================
+   REGISTER
+========================= */
+
+async function register() {
+
+  const message =
+    document
+      .getElementById('registerMessage');
+
+  message.innerHTML = '';
+
+  const password =
+    document
+      .getElementById('registerPassword')
+      .value;
+
+  if (
+    !valueOf('registerLastName') ||
+    !valueOf('registerFirstName') ||
+    !valueOf('registerMiddleName') ||
+    !valueOf('registerPhone') ||
+    !valueOf('registerBirthDate') ||
+    !valueOf('registerEmail') ||
+    !password
+  ) {
+
+    showMessage(
+      message,
+      'Заполните все поля',
+      'error'
+    );
+
+    return;
+  }
+
+  if (password.length < 6) {
+
+    showMessage(
+      message,
+      'Пароль должен содержать минимум 6 символов',
+      'error'
+    );
+
+    return;
+  }
+
+  if (
+    !document
+      .getElementById('contractAccepted')
+      .checked
+  ) {
+
+    showMessage(
+      message,
+      'Необходимо принять агентский договор',
+      'error'
+    );
+
+    return;
+  }
+
+  const button =
+    document
+      .getElementById('registerButton');
+
+  button.disabled = true;
+  button.textContent = 'Регистрация...';
+
+  try {
+
+    const result =
+      await apiRequest({
+
+        action: 'register',
+
+        lastName:
+          valueOf('registerLastName'),
+
+        firstName:
+          valueOf('registerFirstName'),
+
+        middleName:
+          valueOf('registerMiddleName'),
+
+        phone:
+          valueOf('registerPhone'),
+
+        birthDate:
+          valueOf('registerBirthDate'),
+
+        email:
+          valueOf('registerEmail'),
+
+        password,
+
+        contractAccepted: true
+      });
+
+    if (!result.success) {
+      throw new Error(
+        result.message ||
+        'Не удалось зарегистрироваться'
+      );
+    }
+
+    token = result.token;
+
+    localStorage.setItem(
+      'taffy_token',
+      token
+    );
+
+    const profile =
+      await apiRequest({
+        action: 'getProfile',
+        token
+      });
+
+    if (!profile.success) {
+      throw new Error(
+        profile.message ||
+        'Ошибка загрузки профиля'
+      );
+    }
+
+    currentPartner =
+      profile.partner;
+
+    openPartnerHome();
+
+  } catch(error) {
+
+    showMessage(
+      message,
+      error.message,
+      'error'
+    );
+
+  } finally {
+
+    button.disabled = false;
+    button.textContent =
+      'Зарегистрироваться';
+  }
+}
+
+
+/* =========================
+   CONTRACT
+========================= */
+
+function openContract() {
+
+  document
+    .getElementById('contractModal')
+    .classList
+    .remove('hidden');
+}
+
+
+function closeContract() {
+
+  document
+    .getElementById('contractModal')
+    .classList
+    .add('hidden');
+}
+
+
+function acceptContract() {
+
+  document
+    .getElementById('contractAccepted')
+    .checked = true;
+
+  closeContract();
+}
+
+
+/* =========================
+   CATALOG
+========================= */
+
+async function openPublicCatalog() {
+
+  catalogMode = 'public';
+
+  showScreen('catalogScreen');
+
+  await loadCatalog();
+}
+
+
+async function openPartnerCatalog() {
+
+  catalogMode = 'partner';
+
+  showScreen('catalogScreen');
+
+  await loadCatalog();
+}
+
+
+function catalogBack() {
+
+  if (
+    catalogMode === 'partner' &&
+    currentPartner
+  ) {
+    openPartnerHome();
+  } else {
+    openPublicHome();
+  }
+}
+
+
+async function loadCatalog() {
+
+  if (allProducts.length) {
+
+    renderCategories();
+    renderProducts();
+    return;
+  }
+
+  const loading =
+    document.getElementById('catalogLoading');
+
+  const container =
+    document.getElementById('productsContainer');
+
+  loading.classList.remove('hidden');
+
+  container.innerHTML = '';
+
+  try {
+
+    const payload = {
+      action: 'getProducts'
+    };
+
+    if (token) {
+      payload.token = token;
+    }
+
+    const result =
+      await apiRequest(payload);
+
+    if (!result.success) {
+      throw new Error(
+        result.message ||
+        'Не удалось загрузить каталог'
+      );
+    }
+
+    allProducts =
+      result.products || [];
+
+    renderCategories();
+    renderProducts();
+
+  } catch(error) {
+
+    container.innerHTML =
+      `<div class="message error">
+        ${escapeHtml(error.message)}
+      </div>`;
+
+  } finally {
+
+    loading.classList.add('hidden');
+  }
+}
+
+
+function renderCategories() {
+
+  const categories = [
+    'Все',
+    ...new Set(
+      allProducts
+        .map(item => item.category)
+        .filter(Boolean)
+    )
+  ];
+
+  const container =
+    document
+      .getElementById('categoryButtons');
+
+  container.innerHTML = '';
+
+  categories.forEach(category => {
+
+    const button =
+      document.createElement('button');
+
+    button.className =
+      'category-button' +
+      (
+        category === currentCategory
+          ? ' active'
+          : ''
+      );
+
+    button.textContent = category;
+
+    button.onclick = () => {
+
+      currentCategory = category;
+
+      renderCategories();
+      renderProducts();
+    };
+
+    container.appendChild(button);
+  });
+}
+
+
+function visibleProducts() {
+
+  if (currentCategory === 'Все') {
+    return allProducts;
+  }
+
+  return allProducts.filter(
+    item =>
+      item.category === currentCategory
+  );
+}
+
+
+function groupProducts(products) {
+
+  const groups = {};
+
+  products.forEach(product => {
+
+    const key =
+      `${product.category}__${product.name}`;
+
+    if (!groups[key]) {
+
+      groups[key] = {
+        category: product.category,
+        name: product.name,
+        variants: []
+      };
+    }
+
+    groups[key].variants.push(product);
+  });
+
+  return Object.values(groups);
+}
+
+
+function renderProducts() {
+
+  const container =
+    document
+      .getElementById('productsContainer');
+
+  container.innerHTML = '';
+
+  const groups =
+    groupProducts(
+      visibleProducts()
+    );
+
+  if (!groups.length) {
+
+    container.innerHTML =
+      `<div class="empty-state">
+        В этой категории пока нет товаров.
+      </div>`;
+
+    return;
+  }
+
+  groups.forEach(group => {
+
+    container.appendChild(
+      createProductCard(group)
+    );
+
+  });
+}
+
+
+function createProductCard(group) {
+
+  const card =
+    document.createElement('div');
+
+  card.className = 'product-card';
+
+  let selected =
+    group.variants.find(
+      item => item.available
+    ) ||
+    group.variants[0];
+
+  const fixedPhoto =
+    selected?.photo || '';
+
+  const imageWrap =
+    document.createElement('div');
+
+  imageWrap.className =
+    'product-image-wrap';
+
+  if (fixedPhoto) {
+
+    const image =
+      document.createElement('img');
+
+    image.className =
+      'product-image';
+
+    image.src = fixedPhoto;
+    image.alt = group.name;
+
+    imageWrap.appendChild(image);
+
+  } else {
+
+    imageWrap.innerHTML =
+      '<div class="muted">Фото товара</div>';
+  }
+
+
+  const body =
+    document.createElement('div');
+
+  body.className =
+    'product-body';
+
+
+  const category =
+    document.createElement('div');
+
+  category.className =
+    'product-category';
+
+  category.textContent =
+    group.category;
+
+
+  const name =
+    document.createElement('div');
+
+  name.className =
+    'product-name';
+
+  name.textContent =
+    group.name;
+
+
+  body.appendChild(category);
+  body.appendChild(name);
+
+
+  const variants =
+    document.createElement('div');
+
+  variants.className =
+    'variant-row';
+
+
+  const label =
+    document.createElement('div');
+
+  label.className =
+    'variant-label';
+
+  label.textContent =
+    'Выберите вариант';
+
+
+  const buttons =
+    document.createElement('div');
+
+  buttons.className =
+    'option-buttons';
+
+
+  const price =
+    document.createElement('div');
+
+  price.className = 'price';
+
+
+  const addButton =
+    document.createElement('button');
+
+  addButton.className =
+    'add-button';
+
+
+  function update() {
+
+    price.textContent =
+      formatMoney(selected.price);
+
+    [...buttons.children]
+      .forEach((button,index) => {
+
+        button.classList.toggle(
+          'selected',
+          group.variants[index] === selected
+        );
+
+      });
+
+    if (catalogMode === 'partner') {
+
+      addButton.textContent =
+        selected.available
+          ? 'В корзину'
+          : 'Нет в наличии';
+
+      addButton.disabled =
+        !selected.available;
+
+    } else {
+
+      addButton.textContent =
+        selected.available
+          ? 'Для заказа войдите'
+          : 'Нет в наличии';
+
+      addButton.disabled =
+        !selected.available;
+    }
+  }
+
+
+  group.variants.forEach(variant => {
+
+    const button =
+      document.createElement('button');
+
+    button.className =
+      'option-button';
+
+    const pieces = [];
+
+    if (variant.size) {
+      pieces.push(
+        `Размер ${variant.size}`
+      );
+    }
+
+    if (variant.package) {
+      pieces.push(variant.package);
+    }
+
+    button.textContent =
+      pieces.join(' · ') ||
+      'Вариант';
+
+    button.onclick = () => {
+
+      selected = variant;
+      update();
+    };
+
+    buttons.appendChild(button);
+  });
+
+
+  variants.appendChild(label);
+  variants.appendChild(buttons);
+
+  body.appendChild(variants);
+
+
+  const bottom =
+    document.createElement('div');
+
+  bottom.className =
+    'product-bottom';
+
+  bottom.appendChild(price);
+  bottom.appendChild(addButton);
+
+  body.appendChild(bottom);
+
+
+  addButton.onclick = () => {
+
+    if (catalogMode === 'public') {
+
+      openAuth('login');
+      return;
+    }
+
+    if (!selected.available) {
+      return;
+    }
+
+    addToCart({
+      ...selected,
+      photo: fixedPhoto
+    });
+  };
+
+
+  card.appendChild(imageWrap);
+  card.appendChild(body);
+
+  update();
+
+  return card;
+}
+
+
+/* =========================
+   CART
+========================= */
+
+function addToCart(product) {
+
+  const existing =
+    cart.find(
+      item =>
+        item.productId === product.productId
+    );
+
+  if (existing) {
+
+    existing.quantity += 1;
+
+  } else {
+
+    cart.push({
+
+      productId:
+        product.productId,
+
+      category:
+        product.category,
+
+      name:
+        product.name,
+
+      size:
+        product.size,
+
+      package:
+        product.package,
+
+      price:
+        Number(product.price || 0),
+
+      photo:
+        product.photo || '',
+
+      quantity: 1
+    });
+  }
+
+  saveCart();
+
+  showToast('Добавлено в корзину');
+}
+
+
+function saveCart() {
+
+  localStorage.setItem(
+    'taffy_cart',
+    JSON.stringify(cart)
+  );
+
+  updateCartDescription();
+}
+
+
+function updateCartDescription() {
+
+  const element =
+    document
+      .getElementById('homeCartDescription');
+
+  if (!element) {
+    return;
+  }
+
+  const count =
+    cart.reduce(
+      (sum,item) =>
+        sum + Number(item.quantity || 0),
+      0
+    );
+
+  element.textContent =
+    count
+      ? `${count} товар(а) · ${formatMoney(getCartTotal())}`
+      : 'Ваш заказ';
+}
+
+
+function openCart() {
+
+  if (!currentPartner) {
+    openAuth();
+    return;
+  }
+
+  renderCart();
+  showScreen('cartScreen');
+}
+
+
+function renderCart() {
+
+  const container =
+    document
+      .getElementById('cartContainer');
+
+  const totalBlock =
+    document
+      .getElementById('cartTotalBlock');
+
+  container.innerHTML = '';
+
+  if (!cart.length) {
+
+    container.innerHTML =
+      `<div class="empty-state">
+        <h2>Корзина пустая</h2>
+        <p>Добавьте товары из каталога.</p>
+      </div>`;
+
+    totalBlock.classList.add('hidden');
+
+    return;
+  }
+
+
+  cart.forEach(item => {
+
+    const card =
+      document.createElement('div');
+
+    card.className =
+      'cart-item';
+
+
+    const name =
+      document.createElement('div');
+
+    name.className =
+      'cart-item-name';
+
+    name.textContent =
+      item.name;
+
+
+    const meta =
+      document.createElement('div');
+
+    meta.className =
+      'cart-item-meta';
+
+    const parts = [];
+
+    if (item.size) {
+      parts.push(
+        `Размер ${item.size}`
+      );
+    }
+
+    if (item.package) {
+      parts.push(item.package);
+    }
+
+    meta.textContent =
+      parts.join(' · ');
+
+
+    const bottom =
+      document.createElement('div');
+
+    bottom.className =
+      'cart-bottom';
+
+
+    const quantity =
+      document.createElement('div');
+
+    quantity.className =
+      'quantity-control';
+
+
+    const minus =
+      document.createElement('button');
+
+    minus.className =
+      'quantity-button';
+
+    minus.textContent = '−';
+
+
+    const number =
+      document.createElement('span');
+
+    number.textContent =
+      item.quantity;
+
+
+    const plus =
+      document.createElement('button');
+
+    plus.className =
+      'quantity-button';
+
+    plus.textContent = '+';
+
+
+    minus.onclick = () => {
+
+      item.quantity -= 1;
+
+      if (item.quantity <= 0) {
+
+        cart =
+          cart.filter(
+            x =>
+              x.productId !== item.productId
+          );
+      }
+
+      saveCart();
+      renderCart();
+    };
+
+
+    plus.onclick = () => {
+
+      item.quantity += 1;
+
+      saveCart();
+      renderCart();
+    };
+
+
+    quantity.appendChild(minus);
+    quantity.appendChild(number);
+    quantity.appendChild(plus);
+
+
+    const price =
+      document.createElement('strong');
+
+    price.textContent =
+      formatMoney(
+        item.price *
+        item.quantity
+      );
+
+
+    bottom.appendChild(quantity);
+    bottom.appendChild(price);
+
+
+    const remove =
+      document.createElement('button');
+
+    remove.className =
+      'remove-button';
+
+    remove.textContent =
+      'Удалить';
+
+    remove.onclick = () => {
+
+      cart =
+        cart.filter(
+          x =>
+            x.productId !== item.productId
+        );
+
+      saveCart();
+      renderCart();
+    };
+
+
+    card.appendChild(name);
+    card.appendChild(meta);
+    card.appendChild(bottom);
+    card.appendChild(remove);
+
+    container.appendChild(card);
+  });
+
+
+  document
+    .getElementById('cartTotal')
+    .textContent =
+      formatMoney(
+        getCartTotal()
+      );
+
+  totalBlock
+    .classList
+    .remove('hidden');
+}
+
+
+function getCartTotal() {
+
+  return cart.reduce(
+    (sum,item) =>
+      sum +
+      Number(item.price || 0) *
+      Number(item.quantity || 0),
+    0
+  );
+}
+
+
+/* =========================
+   CHECKOUT
+========================= */
+
+function startCheckout() {
+
+  const total =
+    getCartTotal();
+
+  if (total < MIN_ORDER) {
+
+    showToast(
+      `Минимальная сумма заказа — ${MIN_ORDER} ₽`
+    );
+
+    return;
+  }
+
+  showScreen('checkoutScreen');
+}
+
+
+async function createOrder() {
+
+  const message =
+    document
+      .getElementById('checkoutMessage');
+
+  message.innerHTML = '';
+
+  if (getCartTotal() < MIN_ORDER) {
+
+    showMessage(
+      message,
+      `Минимальная сумма заказа — ${MIN_ORDER} ₽`,
+      'error'
+    );
+
+    return;
+  }
+
+
+  if (
+    !valueOf('checkoutClient') ||
+    !valueOf('checkoutPhone') ||
+    !valueOf('checkoutCity') ||
+    !valueOf('checkoutAddress')
+  ) {
+
+    showMessage(
+      message,
+      'Заполните имя, телефон, город и адрес получателя',
+      'error'
+    );
+
+    return;
+  }
+
+
+  const button =
+    document
+      .getElementById('createOrderButton');
+
+  button.disabled = true;
+  button.textContent =
+    'Создаём заказ...';
+
+
+  try {
+
+    const result =
+      await apiRequest({
+
+        action: 'createOrder',
+
+        token,
+
+        client:
+          valueOf('checkoutClient'),
+
+        phone:
+          valueOf('checkoutPhone'),
+
+        city:
+          valueOf('checkoutCity'),
+
+        address:
+          valueOf('checkoutAddress'),
+
+        comment:
+          valueOf('checkoutComment'),
+
+        items:
+          cart.map(item => ({
+            productId:
+              item.productId,
+
+            quantity:
+              item.quantity
+          }))
+      });
+
+
+    if (!result.success) {
+
+      throw new Error(
+        result.message ||
+        'Не удалось создать заказ'
+      );
+    }
+
+
+    cart = [];
+
+    saveCart();
+
+    [
+      'checkoutClient',
+      'checkoutPhone',
+      'checkoutCity',
+      'checkoutAddress',
+      'checkoutComment'
+    ].forEach(id => {
+
+      document
+        .getElementById(id)
+        .value = '';
+
+    });
+
+
+    showToast(
+      `Заказ ${result.orderId || ''} создан`
+    );
+
+    await openOrders();
+
+
+  } catch(error) {
+
+    showMessage(
+      message,
+      error.message,
+      'error'
+    );
+
+  } finally {
+
+    button.disabled = false;
+    button.textContent =
+      'Подтвердить заказ';
+  }
+}
+
+
+/* =========================
+   ORDERS
+========================= */
+
+async function openOrders() {
+
+  showScreen('ordersScreen');
+
+  const loading =
+    document
+      .getElementById('ordersLoading');
+
+  const container =
+    document
+      .getElementById('ordersContainer');
+
+  loading.classList.remove('hidden');
+
+  container.innerHTML = '';
+
+  try {
+
+    const result =
+      await apiRequest({
+        action: 'getMyOrders',
+        token
+      });
+
+    if (!result.success) {
+      throw new Error(
+        result.message ||
+        'Не удалось загрузить заказы'
+      );
+    }
+
+    renderOrders(
+      result.orders || []
+    );
+
+  } catch(error) {
+
+    container.innerHTML =
+      `<div class="message error">
+        ${escapeHtml(error.message)}
+      </div>`;
+
+  } finally {
+
+    loading.classList.add('hidden');
+  }
+}
+
+
+function renderOrders(orders) {
+
+  const container =
+    document
+      .getElementById('ordersContainer');
+
+  container.innerHTML = '';
+
+  if (!orders.length) {
+
+    container.innerHTML =
+      `<div class="empty-state">
+        <h2>Заказов пока нет</h2>
+        <p>
+          Оформленные заказы появятся здесь.
+        </p>
+      </div>`;
+
+    return;
+  }
+
+
+  orders.forEach(order => {
+
+    const card =
+      document.createElement('div');
+
+    card.className =
+      'order-card';
+
+
+    const items =
+      (order.items || [])
+        .map(item => {
+
+          const size =
+            item.size
+              ? ` · размер ${escapeHtml(item.size)}`
+              : '';
+
+          return `
+            <div class="order-line">
+              ${escapeHtml(item.name)}
+              ${size}
+              · ${Number(item.quantity || 0)} шт.
+            </div>
+          `;
+
+        })
+        .join('');
+
+
+    card.innerHTML = `
+
+      <div class="order-top">
+
+        <div>
+          <div class="order-id">
+            ${escapeHtml(order.orderId)}
+          </div>
+
+          <div class="order-date">
+            ${escapeHtml(order.date)}
+          </div>
+        </div>
+
+        <div class="status-badge">
+          ${escapeHtml(order.deliveryStatus || '—')}
+        </div>
+
+      </div>
+
+      ${items}
+
+      <div class="order-summary">
+        <span>Сумма</span>
+        <strong>
+          ${formatMoney(order.total)}
+        </strong>
+      </div>
+
+      <div class="order-summary">
+        <span>Оплата</span>
+        <strong>
+          ${escapeHtml(order.paymentStatus || '—')}
+        </strong>
+      </div>
+
+      <div class="order-summary">
+        <span>Ваше начисление</span>
+        <strong>
+          ${formatMoney(order.reward)}
+        </strong>
+      </div>
+    `;
+
+    container.appendChild(card);
+  });
+}
+
+
+/* =========================
+   PROFILE
+========================= */
+
+async function openProfile() {
+
+  try {
+
+    const result =
+      await apiRequest({
+        action: 'getProfile',
+        token
+      });
+
+    if (!result.success) {
+
+      throw new Error(
+        result.message ||
+        'Ошибка загрузки профиля'
+      );
+    }
+
+    currentPartner =
+      result.partner;
+
+    renderProfile();
+
+    showScreen('profileScreen');
+
+  } catch(error) {
+
+    showToast(error.message);
+  }
+}
+
+
+function renderProfile() {
+
+  if (!currentPartner) {
+    return;
+  }
+
+  const fullName =
+    [
+      currentPartner.firstName,
+      currentPartner.lastName
+    ]
+    .filter(Boolean)
+    .join(' ');
+
+
+  setText(
+    'profileName',
+    fullName
+  );
+
+  setText(
+    'profilePartnerId',
+    currentPartner.partnerId
+  );
+
+  document
+    .getElementById('profileAvatar')
+    .textContent =
+      (
+        currentPartner.firstName ||
+        'T'
+      )
+      .charAt(0)
+      .toUpperCase();
+
+
+  document
+    .getElementById('salesValue')
+    .textContent =
+      formatMoney(
+        currentPartner.sales
+      );
+
+  document
+    .getElementById('incomeValue')
+    .textContent =
+      formatMoney(
+        currentPartner.income
+      );
+
+  document
+    .getElementById('toPayoutValue')
+    .textContent =
+      formatMoney(
+        currentPartner.toPayout
+      );
+
+  document
+    .getElementById('paidValue')
+    .textContent =
+      formatMoney(
+        currentPartner.paid
+      );
+
+
+  setText(
+    'profileLastName',
+    currentPartner.lastName
+  );
+
+  setText(
+    'profileFirstName',
+    currentPartner.firstName
+  );
+
+  setText(
+    'profileMiddleName',
+    currentPartner.middleName
+  );
+
+  setText(
+    'profilePhone',
+    currentPartner.phone
+  );
+
+  setText(
+    'profileEmail',
+    currentPartner.email
+  );
+}
+
+
+/* =========================
+   PAYOUT HISTORY
+========================= */
+
+async function openPayoutHistory() {
+
+  showScreen(
+    'payoutHistoryScreen'
+  );
+
+  const container =
+    document
+      .getElementById(
+        'payoutHistoryContainer'
+      );
+
+  container.innerHTML =
+    `<div class="loading">
+      <div class="spinner"></div>
+    </div>`;
+
+  try {
+
+    const result =
+      await apiRequest({
+        action: 'getPayouts',
+        token
+      });
+
+    if (!result.success) {
+
+      throw new Error(
+        result.message ||
+        'Не удалось загрузить выплаты'
+      );
+    }
+
+    const payouts =
+      result.payouts || [];
+
+    if (!payouts.length) {
+
+      container.innerHTML =
+        `<div class="empty-state">
+          <h2>Выплат пока нет</h2>
+          <p>
+            История появится после первой выплаты.
+          </p>
+        </div>`;
+
+      return;
+    }
+
+    container.innerHTML = '';
+
+    payouts.forEach(payout => {
+
+      const card =
+        document.createElement('div');
+
+      card.className =
+        'order-card';
+
+      card.innerHTML = `
+
+        <div class="order-top">
+
+          <div>
+            <div class="order-id">
+              ${escapeHtml(payout.payoutId)}
+            </div>
+
+            <div class="order-date">
+              ${escapeHtml(payout.period)}
+            </div>
+          </div>
+
+          <div class="status-badge">
+            ${escapeHtml(payout.status || '—')}
+          </div>
+
+        </div>
+
+        <div class="order-summary">
+          <span>Начислено</span>
+          <strong>
+            ${formatMoney(payout.accrued)}
+          </strong>
+        </div>
+
+        <div class="order-summary">
+          <span>К выплате</span>
+          <strong>
+            ${formatMoney(payout.toPayout)}
+          </strong>
+        </div>
+
+        <div class="order-summary">
+          <span>Выплачено</span>
+          <strong>
+            ${formatMoney(payout.paid)}
+          </strong>
+        </div>
+
+        <div class="order-summary">
+          <span>Дата выплаты</span>
+          <strong>
+            ${escapeHtml(payout.date || '—')}
+          </strong>
+        </div>
+      `;
+
+      container.appendChild(card);
+    });
+
+  } catch(error) {
+
+    container.innerHTML =
+      `<div class="message error">
+        ${escapeHtml(error.message)}
+      </div>`;
+  }
+}
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+function logout() {
+
+  token = '';
+  currentPartner = null;
+
+  localStorage.removeItem(
+    'taffy_token'
+  );
+
+  openPublicHome();
+
+  showToast(
+    'Вы вышли из аккаунта'
+  );
+}
+
+
+/* =========================
+   HELPERS
+========================= */
+
+function valueOf(id) {
+
+  return String(
+    document
+      .getElementById(id)
+      .value || ''
+  ).trim();
+}
+
+
+function setText(id,value) {
+
+  document
+    .getElementById(id)
+    .textContent =
+      value || '—';
+}
+
+
+function formatMoney(value) {
+
+  return new Intl.NumberFormat(
+    'ru-RU',
+    {
+      maximumFractionDigits: 2
+    }
+  ).format(
+    Number(value || 0)
+  ) + ' ₽';
+}
+
+
+function escapeHtml(value) {
+
+  return String(value || '')
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;')
+    .replace(/'/g,'&#039;');
+}
+
+
+function showMessage(
+  element,
+  text,
+  type
+) {
+
+  element.innerHTML =
+    `<div class="message ${type}">
+      ${escapeHtml(text)}
+    </div>`;
+}
+
+
+let toastTimer;
+
+
+function showToast(text) {
+
+  const toast =
+    document
+      .getElementById('toast');
+
+  toast.textContent = text;
+
+  toast
+    .classList
+    .add('show');
+
+  clearTimeout(toastTimer);
+
+  toastTimer =
+    setTimeout(
+      () => {
+        toast
+          .classList
+          .remove('show');
+      },
+      1900
+    );
+}
+
+
+/* =========================
+   INITIALIZE
+========================= */
+
+async function initializeApp() {
+
+  /*
+    Сайт сразу открывает публичную главную.
+    Никакого отдельного экрана загрузки.
+  */
+
+  openPublicHome();
+
+  updateCartDescription();
+
+  if (!token) {
+    return;
+  }
+
+  /*
+    Если партнёр уже входил,
+    восстанавливаем сессию в фоне.
+  */
+
+  try {
+
+    const result =
+      await apiRequest({
+        action: 'getProfile',
+        token
+      });
+
+    if (
+      result.success &&
+      result.partner
+    ) {
+
+      currentPartner =
+        result.partner;
+
+    } else {
+
+      token = '';
+
+      localStorage.removeItem(
+        'taffy_token'
+      );
+    }
+
+  } catch(error) {
+
+    console.log(
+      'Сессия не восстановлена'
+    );
+  }
+}
+
+
+initializeApp();
+
+</script>
+
+</body>
+</html>
 
