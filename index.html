@@ -88,6 +88,7 @@ textarea {
   margin: 12px 0 24px;
 }
 
+
 .subtitle {
   color: var(--muted);
   margin-top: 6px;
@@ -3414,22 +3415,7 @@ function getCartTotal() {
 
 function startCheckout() {
 
-  document
-  .getElementById('paymentButton')
-  .classList
-  .add('hidden');
-
-document
-  .getElementById('createOrderButton')
-  .classList
-  .remove('hidden');
-
-document
-  .getElementById('checkoutMessage')
-  .innerHTML = '';
-
-  const total =
-    getCartTotal();
+  const total = getCartTotal();
 
   if (total < MIN_ORDER) {
 
@@ -3438,6 +3424,19 @@ document
     );
 
     return;
+  }
+
+  document
+    .getElementById('checkoutMessage')
+    .innerHTML = '';
+
+  const createButton =
+    document.getElementById('createOrderButton');
+
+  if (createButton) {
+    createButton.classList.remove('hidden');
+    createButton.disabled = false;
+    createButton.textContent = 'Оплатить заказ';
   }
 
   showScreen('checkoutScreen');
@@ -3562,12 +3561,7 @@ async function createOrder() {
   '_blank'
 );
 
-    const paymentButton =
-  document.getElementById('paymentButton');
-
-paymentButton.classList.remove('hidden');
-
-document.getElementById('createOrderButton').classList.add('hidden');
+    
 
 showMessage(
   message,
@@ -4116,23 +4110,12 @@ function showToast(text) {
 
 async function initializeApp() {
 
-  /*
-    Сайт сразу открывает публичную главную.
-    Никакого отдельного экрана загрузки.
-  */
-
-  openPublicHome();
-
   updateCartDescription();
 
   if (!token) {
+    openPublicHome();
     return;
   }
-
-  /*
-    Если партнёр уже входил,
-    восстанавливаем сессию в фоне.
-  */
 
   try {
 
@@ -4150,6 +4133,8 @@ async function initializeApp() {
       currentPartner =
         result.partner;
 
+      openPartnerHome();
+
     } else {
 
       token = '';
@@ -4157,6 +4142,8 @@ async function initializeApp() {
       localStorage.removeItem(
         'taffy_token'
       );
+
+      openPublicHome();
     }
 
   } catch(error) {
@@ -4164,6 +4151,8 @@ async function initializeApp() {
     console.log(
       'Сессия не восстановлена'
     );
+
+    openPublicHome();
   }
 }
 
