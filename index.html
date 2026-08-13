@@ -2456,6 +2456,13 @@ async function login() {
     currentPartner =
       result.partner;
 
+    if (currentPartner) {
+  localStorage.setItem(
+    'taffy_partner',
+    JSON.stringify(currentPartner)
+  );
+}
+
     if (!currentPartner) {
 
       const profile =
@@ -2466,6 +2473,11 @@ async function login() {
 
       currentPartner =
         profile.partner;
+
+      localStorage.setItem(
+  'taffy_partner',
+  JSON.stringify(currentPartner)
+);
     }
 
     openPartnerHome();
@@ -4007,6 +4019,10 @@ function logout() {
     'taffy_token'
   );
 
+  localStorage.removeItem(
+  'taffy_partner'
+);
+
   openPublicHome();
 
   showToast(
@@ -4117,6 +4133,30 @@ async function initializeApp() {
     return;
   }
 
+  /* Сначала восстанавливаем кабинет из браузера */
+
+  try {
+
+    const savedPartner =
+      JSON.parse(
+        localStorage.getItem('taffy_partner') || 'null'
+      );
+
+    if (savedPartner) {
+
+      currentPartner = savedPartner;
+
+      openPartnerHome();
+
+    }
+
+  } catch(error) {
+    console.log(error);
+  }
+
+
+  /* Потом тихо обновляем данные с сервера */
+
   try {
 
     const result =
@@ -4130,30 +4170,53 @@ async function initializeApp() {
       result.partner
     ) {
 
-      currentPartner = result.partner;
+      currentPartner =
+        result.partner;
+
+      localStorage.setItem(
+        'taffy_partner',
+        JSON.stringify(currentPartner)
+      );
 
       openPartnerHome();
 
       return;
     }
 
-    token = '';
-    currentPartner = null;
+    /*
+      Если сервер прямо сказал,
+      что токен недействителен,
+      только тогда выходим.
+    */
 
-    localStorage.removeItem('taffy_token');
+    if (
+      result.success === false &&
+      String(result.message || '')
+        .toLowerCase()
+        .includes('сесс')
+    ) {
 
-    openPublicHome();
+      token = '';
+      currentPartner = null;
+
+      localStorage.removeItem('taffy_token');
+      localStorage.removeItem('taffy_partner');
+
+      openPublicHome();
+    }
 
   } catch(error) {
 
-    console.error(error);
+    /*
+      ВАЖНО:
+      при обычной ошибке сети
+      НЕ выходим из аккаунта.
+    */
 
-    token = '';
-    currentPartner = null;
-
-    localStorage.removeItem('taffy_token');
-
-    openPublicHome();
+    console.log(
+      'Не удалось обновить профиль, используем сохранённую сессию',
+      error
+    );
   }
 }
 
