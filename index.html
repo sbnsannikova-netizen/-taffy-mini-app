@@ -1742,24 +1742,15 @@ h3 {
       Доставка осуществляется в срок до 3 дней.
     </div>
 
-    <button
-      id="createOrderButton"
-      class="primary-button"
-      onclick="createOrder()"
-    >
-      Подтвердить заказ
-    </button>
-
-    <a
-  id="paymentButton"
-  class="primary-button hidden"
-  href="https://qr.nspk.ru/AS2A002QNTAKACVA9VHPSRD8H22RB2VE"
-  target="_blank"
-  rel="noopener"
-  style="display:block; text-align:center; text-decoration:none; margin-top:10px;"
+   <button
+  id="createOrderButton"
+  class="primary-button"
+  onclick="createOrder()"
 >
-  Оплатить через СБП
-</a>
+  Оплатить заказ
+</button>
+
+   
 
   </div>
 
@@ -3569,6 +3560,11 @@ async function createOrder() {
       `Заказ ${result.orderId || ''} создан`
     );
 
+    window.open(
+  'https://qr.nspk.ru/AS2A002QNTAKACVA9VHPSRD8H22RB2VE',
+  '_blank'
+);
+
     const paymentButton =
   document.getElementById('paymentButton');
 
@@ -3595,7 +3591,7 @@ showMessage(
 
     button.disabled = false;
     button.textContent =
-      'Подтвердить заказ';
+      'Оплатить заказ';
   }
 }
 
