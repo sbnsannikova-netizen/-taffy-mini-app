@@ -1750,6 +1750,17 @@ h3 {
       Подтвердить заказ
     </button>
 
+    <a
+  id="paymentButton"
+  class="primary-button hidden"
+  href="https://qr.nspk.ru/AS2A002QNTAKACVA9VHPSRD8H22RB2VE"
+  target="_blank"
+  rel="noopener"
+  style="display:block; text-align:center; text-decoration:none; margin-top:10px;"
+>
+  Оплатить через СБП
+</a>
+
   </div>
 
 </div>
@@ -3415,6 +3426,20 @@ function getCartTotal() {
 
 function startCheckout() {
 
+  document
+  .getElementById('paymentButton')
+  .classList
+  .add('hidden');
+
+document
+  .getElementById('createOrderButton')
+  .classList
+  .remove('hidden');
+
+document
+  .getElementById('checkoutMessage')
+  .innerHTML = '';
+
   const total =
     getCartTotal();
 
@@ -3544,7 +3569,18 @@ async function createOrder() {
       `Заказ ${result.orderId || ''} создан`
     );
 
-    await openOrders();
+    const paymentButton =
+  document.getElementById('paymentButton');
+
+paymentButton.classList.remove('hidden');
+
+document.getElementById('createOrderButton').classList.add('hidden');
+
+showMessage(
+  message,
+  `Заказ ${result.orderId || ''} оформлен. Теперь оплатите заказ через СБП.`,
+  'success'
+);
 
 
   } catch(error) {
